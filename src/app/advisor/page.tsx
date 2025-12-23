@@ -13,6 +13,7 @@ import { AdvisorCTA } from "@/components/solutions/advisor-cta"
 import { AdvisorDeliverables } from "@/components/solutions/advisor-deliverables"
 import { AdvisorStickyCTA } from "@/components/solutions/advisor-sticky-cta"
 import { FreeEstimatorPopup } from "@/components/solutions/free-estimator-popup"
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
     title: "Business Valuations for Advisors | KeyInsightsAI",
@@ -35,6 +36,7 @@ export default function AdvisorPage() {
             <AdvisorPricing />
             <AdvisorFAQ />
             <AdvisorCTA />
+            <Analytics />
             <SiteFooter />
         </main>
     )
