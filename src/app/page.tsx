@@ -10,6 +10,7 @@ import { WhyHours } from "@/components/home/why-hours"
 import { Methodology } from "@/components/home/methodology"
 import { HomeStickyCTA } from "@/components/home/home-sticky-cta"
 import { FinalCTA } from "@/components/home/final-cta"
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "Business Valuation in 24 Hours | Free Estimate | KeyInsightsAI",
@@ -45,6 +46,7 @@ export default function Home() {
       <HomeFAQ />
       <HomeStickyCTA />
       <FinalCTA />
+      <Analytics />
       <SiteFooter />
     </main>
   )
