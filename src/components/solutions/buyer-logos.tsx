@@ -12,18 +12,12 @@ type NetworkLogo = {
 
 const LOGOS: NetworkLogo[] = [
     // Local Files (Add your generic files here)
-    { name: "Transworld", src: "/logos/transworld.png" },
+    { name: "Gill", src: "/logos/gill.jpg" },
     { name: "BizAdv", src: "/logos/bizadv.jpg" },
     { name: "Trans", src: "/logos/trans.png" },
     { name: "Health", src: "/logos/images.jpg" },
+    { name: "Sunbelt", src: "/logos/sunbelt.png" },
 
-    // Fallback/Placeholder Icons (Keep these mixed in or remove as you add more real logos)
-    { name: "Global Ventures", icon: Globe },
-    { name: "Summit Partners", icon: TrendingUp },
-    { name: "Legal Corp", icon: Scale },
-    { name: "First National", icon: Landmark },
-    { name: "Enterprise Holdings", icon: Building2 },
-    { name: "Acquire Inc", icon: Briefcase },
 ]
 
 
@@ -36,7 +30,7 @@ export function BuyerLogos() {
         <section className="py-10 bg-slate-50 border-b border-slate-200 overflow-hidden">
             <div className="container mx-auto px-4 mb-4 text-center">
                 <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
-                    Trusted by acquisition teams at
+                    Trusted by teams at
                 </p>
             </div>
 

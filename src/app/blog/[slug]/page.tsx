@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { MDXRemote } from 'next-mdx-remote/rsc'
 import { ArrowLeft, Clock, Twitter, Linkedin, Share2 } from "lucide-react"
 import { SiteHeader } from "@/components/site-header"
 import { getPostData } from "@/lib/blog-api"
@@ -9,11 +10,12 @@ import { SiteFooter } from "@/components/site-footer"
 import { Metadata } from "next"
 
 type Props = {
-    params: { slug: string }
+    params: Promise<{ slug: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const post = await getPostData(params.slug)
+    const { slug } = await params
+    const post = await getPostData(slug)
     if (!post) return {}
 
     return {
@@ -30,7 +32,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 import JsonLd from "@/components/json-ld"
 
 export default async function BlogPostPage({ params }: Props) {
-    const post = await getPostData(params.slug)
+    const { slug } = await params
+    const post = await getPostData(slug)
 
 
     if (!post) {
@@ -63,7 +66,7 @@ export default async function BlogPostPage({ params }: Props) {
             "name": "KeyInsightsAI",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://keyinsights.ai/logo.png"
+                "url": "https://keyinsightsai.com/logo.png"
             }
         },
         "description": post.excerpt
@@ -135,9 +138,10 @@ export default async function BlogPostPage({ params }: Props) {
                         />
                     </div>
 
+
                     <div className="prose prose-lg max-w-none text-slate-700 prose-headings:text-[#1e3a8a] prose-a:text-blue-600">
-                        {/* Dynamic HTML Content from Markdown */}
-                        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                        {/* Dynamic HTML/MDX Content */}
+                        <MDXRemote source={post.content} />
                     </div>
                 </div>
             </article>

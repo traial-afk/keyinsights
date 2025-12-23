@@ -37,7 +37,7 @@ export default function PricingPage() {
                 "@type": "Product",
                 "name": "Essential Valuation Package",
                 "description": "Professional business valuation report and red flags analysis.",
-                "image": "https://keyinsights.ai/og-image.png",
+                "image": "https://keyinsightsai.com/og-image.png",
                 "sku": "VAL-ESSENTIAL",
                 "offers": {
                     "@type": "Offer",
@@ -50,7 +50,7 @@ export default function PricingPage() {
                 "@type": "Product",
                 "name": "Exit Ready Valuation Package",
                 "description": "Comprehensive valuation including CIM, Teaser, and Enhancement Roadmap.",
-                "image": "https://keyinsights.ai/og-image.png",
+                "image": "https://keyinsightsai.com/og-image.png",
                 "sku": "VAL-EXITREADY",
                 "offers": {
                     "@type": "Offer",

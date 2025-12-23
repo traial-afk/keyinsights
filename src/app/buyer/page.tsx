@@ -13,7 +13,8 @@ import { StickyCTA } from "@/components/solutions/sticky-cta"
 import { SiteFooter } from "@/components/site-footer"
 import { FreeEstimatorPopup } from "@/components/solutions/free-estimator-popup"
 import { Metadata } from "next"
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
     title: "Valuation for Business Buyers| Free Estimate | KeyInsightsAI",
@@ -36,8 +37,9 @@ export default function BuyerPage() {
             <PackagesSection />
             <BuyerFAQ />
             <BuyerCTA />
-            <StickyCTA />
             <Analytics />
+            <StickyCTA />
+            <SpeedInsights />
             <SiteFooter />
         </main>
     )

@@ -15,7 +15,8 @@ import { BuyerLogos } from "@/components/solutions/buyer-logos"
 import { SellerMethodology } from "@/components/solutions/seller-methodology"
 import { SellerDeliverables } from "@/components/solutions/seller-deliverables"
 import { FreeEstimatorPopup } from "@/components/solutions/free-estimator-popup"
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
     title: "Valuation for Business Sellers| Free Estimate | KeyInsightsAI",
@@ -40,6 +41,7 @@ export default function SellingPage() {
                 <SellerPackages />
                 <SellerFAQ />
                 <Analytics />
+                <SpeedInsights />
                 <SellerCTA />
 
                 <SellerStickyCTA />

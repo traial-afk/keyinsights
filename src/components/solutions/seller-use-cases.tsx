@@ -51,7 +51,7 @@ export function SellerUseCases() {
     ]
 
     return (
-        <section className="py-24 bg-white border-t border-slate-200">
+        <section id="use-cases-section" className="py-24 bg-white border-t border-slate-200">
             <div className="container mx-auto px-4 max-w-6xl">
                 {/* Section Header */}
                 <div className="text-center mb-16 space-y-4">

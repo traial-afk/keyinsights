@@ -11,6 +11,7 @@ import { Methodology } from "@/components/home/methodology"
 import { HomeStickyCTA } from "@/components/home/home-sticky-cta"
 import { FinalCTA } from "@/components/home/final-cta"
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "Business Valuation in 24 Hours | Free Estimate | KeyInsightsAI",
@@ -24,8 +25,8 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "KeyInsightsAI",
-    "url": "https://keyinsights.ai",
-    "logo": "https://keyinsights.ai/logo.png",
+    "url": "https://keyinsightsai.com",
+    "logo": "https://keyinsightsai.com/logo.png",
     "sameAs": [
       "https://twitter.com/keyinsightsai",
       "https://linkedin.com/company/keyinsightsai"
@@ -47,6 +48,7 @@ export default function Home() {
       <HomeStickyCTA />
       <FinalCTA />
       <Analytics />
+      <SpeedInsights />
       <SiteFooter />
     </main>
   )

@@ -7,7 +7,7 @@ import { Toaster } from "@/components/ui/sonner"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://keyinsights.ai"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://keyinsightsai.com"),
   title: {
     default: "KeyInsightsAI - Business Valuation in 24 Hours",
     template: "%s | KeyInsightsAI"

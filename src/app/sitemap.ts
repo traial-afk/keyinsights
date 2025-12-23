@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/blog-api'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://keyinsights.ai' // Default to project name or config
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://keyinsightsai.com' // Default to project name or config
     const posts = getAllPosts()
 
     const blogUrls = posts.map((post) => ({
