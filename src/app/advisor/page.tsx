@@ -15,6 +15,7 @@ import { AdvisorStickyCTA } from "@/components/solutions/advisor-sticky-cta"
 import { FreeEstimatorPopup } from "@/components/solutions/free-estimator-popup"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { ClarityPersona } from "@/components/clarity-persona"
 
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
 export default function AdvisorPage() {
     return (
         <main className="min-h-screen bg-slate-50 dark:bg-slate-950 pb-24">
+            <ClarityPersona persona="advisor" />
             <SiteHeader />
             <AdvisorHero />
             <BuyerLogos />
