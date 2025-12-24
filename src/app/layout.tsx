@@ -21,6 +21,14 @@ export const metadata: Metadata = {
     title: "KeyInsightsAI - Business Valuation in 24 Hours",
     description: "Professional business valuation in 24 hours for $399-$549. Data-driven financial analysis for buyers, sellers, and advisors.",
     siteName: "KeyInsightsAI",
+    images: [
+    {
+      url: "/logo.png",
+      width: 1200,
+      height: 630,
+      alt: "KeyInsightsAI - Business Valuation in 24 Hours",
+    }
+  ],
   },
   twitter: {
     card: "summary_large_image",
