@@ -229,10 +229,10 @@ export default function PrivacyPolicyPage() {
                                 <strong>KeyInsightsAI</strong>
                             </p>
                             <p className="text-slate-700 dark:text-slate-300 mb-2">
-                                Email: <a href="mailto:support@keyinsightsai.com" className="text-blue-600 dark:text-blue-400 hover:underline">privacy@keyinsightsai.com</a>
+                                Email: <a href="mailto:support@keyinsightsai.com" className="text-blue-600 dark:text-blue-400 hover:underline">support@keyinsightsai.com</a>
                             </p>
                             <p className="text-slate-700 dark:text-slate-300">
-                                Website: <a href="https://www.keyinsightsai.com" className="text-blue-600 dark:text-blue-400 hover:underline">valuation.keyinsightsai.com</a>
+                                Website: <a href="https://www.keyinsightsai.com" className="text-blue-600 dark:text-blue-400 hover:underline">www.keyinsightsai.com</a>
                             </p>
                         </div>
                     </section>
