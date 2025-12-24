@@ -105,9 +105,9 @@ export function SiteHeader() {
                     <Link href={getPricingLink()} className="hover:text-blue-600 transition-colors">Pricing</Link>
 
                     <DropdownMenu>
-                        {/*<DropdownMenuTrigger className="flex items-center gap-1 hover:text-blue-600 transition-colors focus:outline-none">
+                        <DropdownMenuTrigger className="flex items-center gap-1 hover:text-blue-600 transition-colors focus:outline-none">
                             Resources <ChevronDown className="w-4 h-4" />
-                        </DropdownMenuTrigger>  */}
+                        </DropdownMenuTrigger>
                         <DropdownMenuContent align="center" className="w-64 p-2">
                             <DropdownMenuItem asChild>
                                 <Link href="/why-us" className="flex items-start gap-3 p-2 cursor-pointer">
