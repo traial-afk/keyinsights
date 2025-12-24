@@ -11,7 +11,6 @@ type CookiePreferences = {
   marketing: boolean
 }
 
-// Everything ON by default
 const defaultPreferences: CookiePreferences = {
   essential: true,
   analytics: true,
@@ -128,7 +127,6 @@ export function CookieConsent() {
 
   return (
     <>
-      {/* Main Banner */}
       {showBanner && !showPreferences && (
         <div className="fixed bottom-4 left-4 right-4 md:right-auto z-50 max-w-md bg-white border border-slate-200 rounded-xl shadow-lg p-6 animate-in slide-in-from-bottom-4 duration-300">
           <div className="flex items-start gap-3">
@@ -142,7 +140,6 @@ export function CookieConsent() {
                 </Link>
               </p>
               
-              {/* Primary Accept Button */}
               <button
                 onClick={acceptAll}
                 className="w-full px-4 py-2.5 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors mb-3"
@@ -150,7 +147,6 @@ export function CookieConsent() {
                 Accept All Cookies
               </button>
               
-              {/* Secondary text links */}
               <div className="flex items-center justify-center gap-4 text-sm">
                 <button
                   onClick={() => setShowPreferences(true)}
@@ -172,11 +168,9 @@ export function CookieConsent() {
         </div>
       )}
 
-      {/* Preferences Modal */}
       {showPreferences && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
           <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full max-h-[90vh] overflow-hidden">
-            {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-slate-200">
               <div>
                 <h2 className="text-xl font-semibold text-slate-900">Cookie Preferences</h2>
@@ -190,7 +184,6 @@ export function CookieConsent() {
               </button>
             </div>
 
-            {/* Categories */}
             <div className="p-6 overflow-y-auto max-h-[50vh] space-y-4">
               {categories.map((category) => (
                 <div
@@ -242,7 +235,6 @@ export function CookieConsent() {
                     </label>
                   </div>
 
-                  {/* Expanded Details */}
                   {expandedCategory === category.id && (
                     <div className="p-4 border-t border-slate-200 bg-white">
                       <p className="text-sm font-medium text-slate-700 mb-2">This includes:</p>
@@ -260,7 +252,6 @@ export function CookieConsent() {
               ))}
             </div>
 
-            {/* Footer */}
             <div className="flex items-center justify-between p-6 border-t border-slate-200 bg-slate-50">
               <button
                 onClick={declineAll}
@@ -289,30 +280,3 @@ export function CookieConsent() {
     </>
   )
 }
-```
-
----
-
-**Changes made:**
-
-| Before | After |
-|--------|-------|
-| Everything off by default | Everything ON by default |
-| Three equal buttons | Accept prominent, others as text links |
-| "Decline All" as button | "Decline all" as subtle underlined text |
-| "Manage" as button | "Manage preferences" as subtle text link |
-| "Required" badge | "Always on" badge (friendlier) |
-
-**Visual layout now:**
-```
-┌─────────────────────────────────────┐
-│ 🍪 We value your privacy            │
-│                                     │
-│ We use cookies to enhance...        │
-│                                     │
-│ ┌─────────────────────────────────┐ │
-│ │      Accept All Cookies         │ │  ← Primary blue button
-│ └─────────────────────────────────┘ │
-│                                     │
-│   ⚙ Manage preferences | Decline all │  ← Subtle text links
-└─────────────────────────────────────┘
