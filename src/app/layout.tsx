@@ -67,14 +67,18 @@ export default function RootLayout({
         
            
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSSZ6B5GWX"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-RSSZ6B5GWX');
-       </script>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-RSSZ6B5GWX"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-RSSZ6B5GWX');
+          `}
+        </Script>
         
         {/* Microsoft Clarity */}
         <Script id="microsoft-clarity" strategy="afterInteractive">
