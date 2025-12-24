@@ -196,7 +196,7 @@ export default function RefundPolicyPage() {
                                 Email: <a href="mailto:support@keyinsightsai.com" className="text-blue-600 dark:text-blue-400 hover:underline">support@keyinsightsai.com</a>
                             </p>
                             <p className="text-slate-700 dark:text-slate-300">
-                                Website: <a href="https://valuation.keyinsightsai.com" className="text-blue-600 dark:text-blue-400 hover:underline">valuation.keyinsightsai.com</a>
+                                Website: <a href="https://www.keyinsightsai.com" className="text-blue-600 dark:text-blue-400 hover:underline">www.keyinsightsai.com</a>
                             </p>
                         </div>
                         <p className="text-slate-700 dark:text-slate-300 mt-4">
