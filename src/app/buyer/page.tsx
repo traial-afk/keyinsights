@@ -15,6 +15,7 @@ import { FreeEstimatorPopup } from "@/components/solutions/free-estimator-popup"
 import { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { ClarityPersona } from "@/components/clarity-persona"
 
 export const metadata: Metadata = {
     title: "Valuation for Business Buyers| Free Estimate | KeyInsightsAI",
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
 export default function BuyerPage() {
     return (
         <main className="min-h-screen bg-slate-50 pb-24">
+            <ClarityPersona persona="buyer" />
             <SiteHeader />
             <BuyingHero />
             <BuyerLogos />
@@ -31,7 +33,6 @@ export default function BuyerPage() {
             <BuyerSolution />
             <BuyerSteps />
             <BuyerUseCases />
-            <BuyerMethods />
             <BuyerMethods />
             <FreeEstimatorPopup />
             <PackagesSection />
