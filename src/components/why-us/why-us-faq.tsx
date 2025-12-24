@@ -8,7 +8,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
-import { ContactUsDialog } from "@/components/contact-us-dialog"
+import { ContactUsDialog } from "@/components/shared/contact-us-dialog"
 
 const faqItems = [
     {
