@@ -14,7 +14,7 @@ export default function RefundPolicyPage() {
     return (
         <div className="flex flex-col min-h-screen">
             <SiteHeader />
-            <main className="flex-1 container mx-auto px-4 py-12 max-w-4xl">
+            <main className="flex-1 container mx-auto px-4 py-20 max-w-4xl">
                 <h1 className="text-4xl font-bold mb-8">Refund Policy</h1>
                 
                 <div className="prose dark:prose-invert max-w-none">
