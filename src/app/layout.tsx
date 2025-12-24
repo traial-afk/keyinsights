@@ -66,7 +66,7 @@ export default function RootLayout({
         </ThemeProvider>
         
            
-        <!-- Google tag (gtag.js) -->
+        {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSSZ6B5GWX"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
