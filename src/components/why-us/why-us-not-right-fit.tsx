@@ -40,7 +40,7 @@ export function WhyUsNotRightFit() {
                         </div>
                         <div>
                             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 font-['Playfair_Display'] serif">
-                                When We're <span className="italic">Not</span> the Right Fit
+                                When We're Not the Right Fit
                             </h2>
                             <p className="text-slate-600 mt-1">
                                 Transparency builds trust. Here's when you should look elsewhere.
