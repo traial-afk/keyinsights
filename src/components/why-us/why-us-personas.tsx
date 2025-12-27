@@ -32,7 +32,7 @@ const personas = [
             "Realistic pricing",
             "Professional positioning",
         ],
-        href: "/seller",
+        href: "/selling",
         ctaText: "Learn More",
     },
     {
