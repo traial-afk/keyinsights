@@ -18,7 +18,7 @@ const personas = [
             "Risk and red flag identification",
             "Negotiation leverage",
         ],
-        href: "/buyers",
+        href: "/buyer",
         ctaText: "Learn More",
     },
     {
@@ -32,7 +32,7 @@ const personas = [
             "Realistic pricing",
             "Professional positioning",
         ],
-        href: "/sellers",
+        href: "/seller",
         ctaText: "Learn More",
     },
     {
@@ -46,7 +46,7 @@ const personas = [
             "Volume pricing available",
             "24-hour delivery",
         ],
-        href: "/advisors",
+        href: "/advisor",
         ctaText: "Learn More",
     },
 ]
