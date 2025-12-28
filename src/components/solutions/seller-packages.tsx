@@ -14,7 +14,7 @@ export function SellerPackages() {
             "Red Flags Analysis",
         ],
         features: [
-            "4 Proven Valuation Methods",
+            "3 Proven Valuation Methods",
             "Market Comparables Benchmark",
             "24-Hour Delivery",
             "Expert Consultation Included",
@@ -36,7 +36,7 @@ export function SellerPackages() {
             "Valuation Enhancement Report",
         ],
         features: [
-            "4 Proven Valuation Methods",
+            "3 Proven Valuation Methods",
             "Market Comparables Benchmark",
             "24-Hour Delivery",
             "Expert Consultation Included",
