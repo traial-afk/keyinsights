@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
 import { TrendingUp, BarChart3, Calculator, Building2 } from "lucide-react"
 
@@ -388,7 +389,7 @@ function StackedChartViz() {
     )
 }
 
-const chartComponents: Record<string, () => JSX.Element> = {
+const chartComponents: Record<string, () => React.ReactNode> = {
     "line": LineChartViz,
     "scatter": ScatterChartViz,
     "bar": BarChartViz,
