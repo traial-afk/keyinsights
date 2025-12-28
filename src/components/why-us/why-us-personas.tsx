@@ -93,7 +93,7 @@ export function WhyUsPersonas() {
                         <span className="text-[#1e3a8a]">Transaction</span>
                     </h2>
                     <p className="text-slate-600 max-w-2xl mx-auto">
-                        Whether you're buying, selling, or advising—we have solutions designed for your specific needs.
+                        Whether you're buying, selling, or advising we have solutions designed for your specific needs.
                     </p>
                 </motion.div>
 
