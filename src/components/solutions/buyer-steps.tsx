@@ -66,7 +66,7 @@ export function BuyerSteps() {
             number: '02',
             icon: TrendingUp,
             title: 'We Analyze the Numbers',
-            description: 'Our team applies 4 proven valuation methods and runs a full red flags analysis',
+            description: 'Our team applies 3 proven valuation methods and runs a full red flags analysis',
             expandable: false,
         },
         {
