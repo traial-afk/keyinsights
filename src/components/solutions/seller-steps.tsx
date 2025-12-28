@@ -65,7 +65,7 @@ export function SellerSteps() {
             number: '02',
             icon: TrendingUp,
             title: 'We Analyze Everything',
-            description: 'Our team calculates your business value using 4 proven methods and separately identifies every red flag buyers might use against you.',
+            description: 'Our team calculates your business value using 3 proven methods and separately identifies every red flag buyers might use against you.',
             expandable: false,
         },
         {
