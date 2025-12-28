@@ -71,7 +71,7 @@ export function WhyUsCTA() {
                     </div>
                     <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border border-slate-200">
                         <FileCheck className="w-4 h-4 text-[#1e3a8a]" />
-                        <span className="text-slate-700 text-sm font-medium">4 Valuation Methods</span>
+                        <span className="text-slate-700 text-sm font-medium">3 Valuation Methods</span>
                     </div>
                     <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border border-slate-200">
                         <MessageSquare className="w-4 h-4 text-[#1e3a8a]" />
