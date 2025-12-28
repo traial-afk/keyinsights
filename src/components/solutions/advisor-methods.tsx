@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { TrendingUp, Building2, BarChart3, Clock, Check, Eye, Download, ChevronDown, FileText, FileSpreadsheet, Presentation, X, AlertTriangle, Calculator, ArrowUpRight } from "lucide-react"
+import { TrendingUp, Building2, BarChart3, Check, Eye, Download, ChevronDown, FileText, FileSpreadsheet, Presentation, X, AlertTriangle, Calculator, ArrowUpRight } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -60,30 +60,26 @@ export function AdvisorMethods() {
         {
             icon: TrendingUp,
             title: "Income Approach",
-            description: "Combines Discounted Cash Flow (DCF) and capitalization of earnings methods. Projects future cash flows, discounts to present value, and calculates value based on the business's ability to generate income using industry-specific multiples.",
+            weight: "50%",
+            description: "Values the business based on normalized earnings (SDE for owner-operated, EBITDA for larger operations) with industry-appropriate multiples. Supported by DCF analysis where reliable projections are available.",
             bestFor: "Service businesses, professional practices, and companies with predictable revenue streams",
-            color: "bg-[#1e3a8a]"
-        },
-        {
-            icon: Building2,
-            title: "Asset-Based Approach",
-            description: "Values the business based on its net asset value, including tangible assets like equipment, inventory, and real estate, plus intangible assets like customer lists, brand value, and goodwill.",
-            bestFor: "Asset-heavy businesses, manufacturing, real estate holdings, or liquidation scenarios",
             color: "bg-[#1e3a8a]"
         },
         {
             icon: BarChart3,
             title: "Market Comparables",
+            weight: "35%",
             description: "Benchmarks your client's business against 100,000+ actual transactions in our database. Analyzes what similar businesses actually sold for, adjusted for size, geography, and industry specifics.",
             bestFor: "Validating other methods and establishing market-realistic expectations",
             color: "bg-[#f4a623]"
         },
         {
-            icon: Clock,
-            title: "Weighted EBITDA Analysis",
-            description: "Examines EBITDA trends over 3-5 years, applying appropriate weightings to recent performance. Identifies whether the business is growing, stable, or declining and adjusts valuation accordingly.",
-            bestFor: "Understanding trajectory, normalizing unusual years, and supporting negotiation positions",
-            color: "bg-[#f4a623]"
+            icon: Building2,
+            title: "Asset-Based Approach",
+            weight: "15%",
+            description: "Values the business based on its net asset value, including tangible assets like equipment, inventory, and real estate, plus intangible assets like customer lists, brand value, and goodwill. Provides a floor value and sanity check.",
+            bestFor: "Asset-heavy businesses, manufacturing, real estate holdings, or liquidation scenarios",
+            color: "bg-[#1e3a8a]"
         },
     ]
 
@@ -110,7 +106,7 @@ export function AdvisorMethods() {
             icon: Calculator,
             title: "Business Valuation Report",
             tagline: "The Number",
-            description: "Defensible valuation using four proven methods. Clear range, weighted value, and methodology breakdown buyers and lenders trust.",
+            description: "Defensible valuation using three proven methods. Clear range, weighted value, and methodology breakdown buyers and lenders trust.",
             package: "Essential",
             color: "text-[#1e3a8a]",
             bgColor: "bg-blue-50"
@@ -168,14 +164,14 @@ export function AdvisorMethods() {
     return (
         <section className="py-24 bg-slate-50 border-t border-slate-200">
             <div className="container mx-auto px-4 max-w-6xl">
-                {/* Section 1: Four Methods */}
+                {/* Section 1: Three Methods */}
                 <div className="mb-24">
                     <div className="text-center mb-16 space-y-4">
                         <div className="inline-flex items-center rounded-full bg-[#1e3a8a]/10 px-4 py-1.5 text-sm font-semibold text-[#1e3a8a] mb-2">
                             Our Methodology
                         </div>
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900">
-                            4 Proven Methods.{" "}
+                            3 Proven Methods.{" "}
                             <span className="text-[#1e3a8a]">One Clear Answer.</span>
                         </h2>
                         <p className="text-slate-600 max-w-2xl mx-auto">
@@ -183,17 +179,20 @@ export function AdvisorMethods() {
                         </p>
                     </div>
 
-                    {/* Methods Grid - 2x2 */}
-                    <div className="grid md:grid-cols-2 gap-6 mb-10">
+                    {/* Methods Grid - 3 columns */}
+                    <div className="grid md:grid-cols-3 gap-6 mb-10">
                         {methods.map((method, index) => (
                             <Card key={index} className="border-0 shadow-md bg-white hover:shadow-lg transition-shadow">
                                 <CardContent className="p-8">
-                                    <div className="flex items-center gap-4 mb-4">
+                                    <div className="flex items-center justify-between mb-4">
                                         <div className={`w-10 h-10 rounded-lg ${method.color} flex items-center justify-center text-white shadow-sm`}>
                                             <method.icon className="w-5 h-5" />
                                         </div>
-                                        <h3 className="text-lg font-bold text-slate-900">{method.title}</h3>
+                                        <Badge variant="outline" className="text-slate-600 border-slate-300 font-semibold">
+                                            {method.weight}
+                                        </Badge>
                                     </div>
+                                    <h3 className="text-lg font-bold text-slate-900 mb-3">{method.title}</h3>
                                     <p className="text-slate-600 text-sm leading-relaxed mb-6">
                                         {method.description}
                                     </p>
@@ -283,37 +282,30 @@ export function AdvisorMethods() {
                                         </div>
                                     </div>
 
-                                    {/* Methodology Breakdown */}
+                                    {/* Methodology Breakdown - Updated to 3 methods */}
                                     <div className="space-y-3">
                                         <div className="text-xs text-slate-500 font-medium mb-2">Methodology Weights</div>
                                         <div className="space-y-2">
                                             <div className="flex items-center gap-3">
                                                 <div className="w-20 text-xs text-slate-500">Income</div>
                                                 <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
-                                                    <div className="h-full w-[40%] bg-[#1e3a8a] rounded-full"></div>
+                                                    <div className="h-full w-[50%] bg-[#1e3a8a] rounded-full"></div>
                                                 </div>
-                                                <div className="w-8 text-xs text-slate-600 font-medium">40%</div>
-                                            </div>
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-20 text-xs text-slate-500">Asset</div>
-                                                <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
-                                                    <div className="h-full w-[15%] bg-[#1e3a8a] rounded-full"></div>
-                                                </div>
-                                                <div className="w-8 text-xs text-slate-600 font-medium">15%</div>
+                                                <div className="w-8 text-xs text-slate-600 font-medium">50%</div>
                                             </div>
                                             <div className="flex items-center gap-3">
                                                 <div className="w-20 text-xs text-slate-500">Market</div>
                                                 <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
-                                                    <div className="h-full w-[25%] bg-[#f4a623] rounded-full"></div>
+                                                    <div className="h-full w-[35%] bg-[#f4a623] rounded-full"></div>
                                                 </div>
-                                                <div className="w-8 text-xs text-slate-600 font-medium">25%</div>
+                                                <div className="w-8 text-xs text-slate-600 font-medium">35%</div>
                                             </div>
                                             <div className="flex items-center gap-3">
-                                                <div className="w-20 text-xs text-slate-500">EBITDA</div>
+                                                <div className="w-20 text-xs text-slate-500">Asset</div>
                                                 <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
-                                                    <div className="h-full w-[20%] bg-[#f4a623] rounded-full"></div>
+                                                    <div className="h-full w-[15%] bg-emerald-500 rounded-full"></div>
                                                 </div>
-                                                <div className="w-8 text-xs text-slate-600 font-medium">20%</div>
+                                                <div className="w-8 text-xs text-slate-600 font-medium">15%</div>
                                             </div>
                                         </div>
                                     </div>
