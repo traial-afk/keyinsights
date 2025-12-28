@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { TrendingUp, Building2, BarChart3, Calculator, Check, Eye, Download, X, FileText } from "lucide-react"
+import { TrendingUp, Building2, BarChart3, Check, Eye, Download, X, FileText } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -9,27 +9,24 @@ import { Badge } from "@/components/ui/badge"
 const methods = [
     {
         icon: TrendingUp,
-        title: "DCF + Income Approach",
-        description: "Projects your future earnings and calculates what they're worth today. The foundation of most business valuations.",
-        color: "bg-[#1e3a8a]"
-    },
-    {
-        icon: Building2,
-        title: "Asset-Based Approach",
-        description: "Values your tangible assets (equipment, inventory, property) plus intangibles like customer relationships.",
+        title: "Income Approach",
+        weight: "50%",
+        description: "Values your business based on normalized earnings (SDE for owner-operated, EBITDA for larger operations) with industry-appropriate multiples. Supported by DCF analysis where reliable projections are available.",
         color: "bg-[#1e3a8a]"
     },
     {
         icon: BarChart3,
         title: "Market Comparables",
-        description: "Benchmarks your business against 100,000+ actual transactions. What did similar businesses actually sell for?",
+        weight: "35%",
+        description: "Benchmarks your business against 100,000+ actual transactions. What did similar businesses in your industry actually sell for?",
         color: "bg-[#f4a623]"
     },
     {
-        icon: Calculator,
-        title: "Weighted EBITDA Analysis",
-        description: "Examines your earnings trends over 3-5 years. Shows whether the business is growing, stable, or declining.",
-        color: "bg-[#f4a623]"
+        icon: Building2,
+        title: "Asset-Based Approach",
+        weight: "15%",
+        description: "Values your tangible assets (equipment, inventory, property) plus intangibles. Provides a floor value and sanity check on earnings-based methods.",
+        color: "bg-[#1e3a8a]"
     },
 ]
 
@@ -42,7 +39,7 @@ export function Methodology() {
                 {/* Header */}
                 <div className="text-center mb-16 space-y-4">
                     <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] serif">
-                        4 Proven Methods.{" "}
+                        3 Proven Methods.{" "}
                         <span className="text-[#1e3a8a]">One Clear Answer.</span>
                     </h2>
                     <p className="text-slate-600 max-w-2xl mx-auto text-lg">
@@ -50,18 +47,21 @@ export function Methodology() {
                     </p>
                 </div>
 
-                {/* Methods Grid - 2x2 */}
-                <div className="grid md:grid-cols-2 gap-6 mb-12">
+                {/* Methods Grid - 3 cards */}
+                <div className="grid md:grid-cols-3 gap-6 mb-12">
                     {methods.map((method, index) => (
                         <Card key={index} className="border border-slate-200 shadow-md bg-white hover:shadow-lg transition-shadow">
                             <CardContent className="p-8">
-                                <div className="flex items-center gap-4 mb-4">
+                                <div className="flex items-center justify-between mb-4">
                                     <div className={`w-12 h-12 rounded-xl ${method.color} flex items-center justify-center text-white shadow-sm`}>
                                         <method.icon className="w-6 h-6" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-slate-900">{method.title}</h3>
+                                    <Badge variant="outline" className="text-slate-600 border-slate-300 font-semibold">
+                                        {method.weight}
+                                    </Badge>
                                 </div>
-                                <p className="text-slate-600 leading-relaxed">
+                                <h3 className="text-xl font-bold text-slate-900 mb-3">{method.title}</h3>
+                                <p className="text-slate-600 leading-relaxed text-sm">
                                     {method.description}
                                 </p>
                             </CardContent>
@@ -142,37 +142,30 @@ export function Methodology() {
                                     </div>
                                 </div>
 
-                                {/* Methodology Breakdown */}
+                                {/* Methodology Breakdown - Updated to 3 methods */}
                                 <div className="space-y-3">
                                     <div className="text-xs text-slate-500 font-medium mb-2">Methodology Weights</div>
                                     <div className="space-y-2">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-16 text-xs text-slate-500">DCF</div>
+                                            <div className="w-20 text-xs text-slate-500">Income</div>
                                             <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
-                                                <div className="h-full w-[35%] bg-[#1e3a8a] rounded-full"></div>
+                                                <div className="h-full w-[50%] bg-[#1e3a8a] rounded-full"></div>
+                                            </div>
+                                            <div className="w-8 text-xs text-slate-600 font-medium">50%</div>
+                                        </div>
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-20 text-xs text-slate-500">Market</div>
+                                            <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+                                                <div className="h-full w-[35%] bg-[#f4a623] rounded-full"></div>
                                             </div>
                                             <div className="w-8 text-xs text-slate-600 font-medium">35%</div>
                                         </div>
                                         <div className="flex items-center gap-3">
-                                            <div className="w-16 text-xs text-slate-500">Income</div>
-                                            <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
-                                                <div className="h-full w-[30%] bg-[#f4a623] rounded-full"></div>
-                                            </div>
-                                            <div className="w-8 text-xs text-slate-600 font-medium">30%</div>
-                                        </div>
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-16 text-xs text-slate-500">Asset</div>
+                                            <div className="w-20 text-xs text-slate-500">Asset</div>
                                             <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
                                                 <div className="h-full w-[15%] bg-emerald-500 rounded-full"></div>
                                             </div>
                                             <div className="w-8 text-xs text-slate-600 font-medium">15%</div>
-                                        </div>
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-16 text-xs text-slate-500">EBITDA</div>
-                                            <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
-                                                <div className="h-full w-[20%] bg-slate-700 rounded-full"></div>
-                                            </div>
-                                            <div className="w-8 text-xs text-slate-600 font-medium">20%</div>
                                         </div>
                                     </div>
                                 </div>
