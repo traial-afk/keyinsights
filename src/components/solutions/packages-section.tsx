@@ -4,8 +4,8 @@ import Link from 'next/link';
 export function PackagesSection() {
     const features = [
         {
-            title: '4 Proven Valuation Methods',
-            description: 'DCF, Income Approach, Asset Approach, and Weighted Analysis synthesized into one defensible number',
+            title: '3 Proven Valuation Methods',
+            description: 'DCF&Income Approach, Asset Approach, and Market Comparables synthesized into one defensible number',
         },
         {
             title: 'Red Flags Analysis',
