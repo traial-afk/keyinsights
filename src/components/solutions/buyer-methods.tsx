@@ -1,6 +1,6 @@
 "use client"
 
-import { TrendingUp, Building2, BarChart3, Clock, Check, Eye, Download } from "lucide-react"
+import { TrendingUp, Building2, BarChart3, Check, Eye, Download } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -17,59 +17,58 @@ export function BuyerMethods() {
     const methods = [
         {
             icon: TrendingUp,
-            title: "DCF/Income Approach",
-            description: "Projects future cash flows and applies earnings multiples specific to your industry. Combines discounted cash flow modeling with capitalization rates to determine what the business's income stream is actually worth.",
+            title: "Income Approach",
+            weight: "50%",
+            description: "Values the business based on normalized earnings (SDE for owner-operated, EBITDA for larger operations) with industry-appropriate multiples. Supported by DCF analysis where reliable projections are available.",
             bestFor: "Service businesses and companies with predictable revenue",
-            color: "bg-[#1e3a8a]"
-        },
-        {
-            icon: Building2,
-            title: "Asset-Based Approach",
-            description: "Values the business based on its net asset value, including tangible assets like equipment and inventory, plus intangible assets like customer lists and goodwill.",
-            bestFor: "Asset-heavy businesses or liquidation scenarios",
             color: "bg-[#1e3a8a]"
         },
         {
             icon: BarChart3,
             title: "Market Comparables",
+            weight: "35%",
             description: "Benchmarks your valuation against 100,000+ actual business transactions in our database. Shows what similar businesses in your industry and size range actually sold for, not just theoretical models.",
             bestFor: "Reality-checking the asking price against actual deals",
             color: "bg-[#f4a623]"
         },
         {
-            icon: Clock,
-            title: "Weighted EBITDA Analysis",
-            description: "Examines EBITDA trends over 3-5 years, applying appropriate weightings to recent performance. Identifies whether the business is growing, stable, or declining.",
-            bestFor: "Understanding trajectory and normalizing unusual years",
-            color: "bg-[#f4a623]"
+            icon: Building2,
+            title: "Asset-Based Approach",
+            weight: "15%",
+            description: "Values the business based on its net asset value, including tangible assets like equipment and inventory, plus intangible assets like customer lists and goodwill. Provides a floor value and sanity check.",
+            bestFor: "Asset-heavy businesses or liquidation scenarios",
+            color: "bg-[#1e3a8a]"
         },
     ]
 
     return (
         <section className="py-24 bg-slate-50 border-t border-slate-200">
             <div className="container mx-auto px-4 max-w-6xl">
-                {/* Section 1: Four Methods */}
+                {/* Section 1: Three Methods */}
                 <div className="mb-24">
                     <div className="text-center mb-16 space-y-4">
                         <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] serif">
-                            4 Proven Methods. One Clear Answer.
+                            3 Proven Methods. One Clear Answer.
                         </h2>
                         <p className="text-slate-600 max-w-2xl mx-auto">
                             Professional methodology following SSVS No. 1 and USPAP guidelines
                         </p>
                     </div>
 
-                    {/* Methods Grid - 2x2 */}
-                    <div className="grid md:grid-cols-2 gap-6 mb-10">
+                    {/* Methods Grid - 3 columns */}
+                    <div className="grid md:grid-cols-3 gap-6 mb-10">
                         {methods.map((method, index) => (
                             <Card key={index} className="border-0 shadow-md bg-white hover:shadow-lg transition-shadow">
                                 <CardContent className="p-8">
-                                    <div className="flex items-center gap-4 mb-4">
+                                    <div className="flex items-center justify-between mb-4">
                                         <div className={`w-10 h-10 rounded-lg ${method.color} flex items-center justify-center text-white shadow-sm`}>
                                             <method.icon className="w-5 h-5" />
                                         </div>
-                                        <h3 className="text-lg font-bold text-slate-900">{method.title}</h3>
+                                        <Badge variant="outline" className="text-slate-600 border-slate-300 font-semibold">
+                                            {method.weight}
+                                        </Badge>
                                     </div>
+                                    <h3 className="text-lg font-bold text-slate-900 mb-3">{method.title}</h3>
                                     <p className="text-slate-600 text-sm leading-relaxed mb-6">
                                         {method.description}
                                     </p>
@@ -180,16 +179,23 @@ export function BuyerMethods() {
                                     </div>
                                 </div>
 
-                                {/* Methodology Breakdown - Updated Weights */}
+                                {/* Methodology Breakdown - Updated to 3 methods */}
                                 <div className="space-y-3">
                                     <div className="text-xs text-slate-500 font-medium mb-2">Methodology Weights</div>
                                     <div className="space-y-2">
                                         <div className="flex items-center gap-3">
                                             <div className="w-16 text-xs text-slate-500">Income</div>
                                             <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
-                                                <div className="h-full w-[40%] bg-[#1e3a8a] rounded-full"></div>
+                                                <div className="h-full w-[50%] bg-[#1e3a8a] rounded-full"></div>
                                             </div>
-                                            <div className="w-8 text-xs text-slate-600 font-medium">40%</div>
+                                            <div className="w-8 text-xs text-slate-600 font-medium">50%</div>
+                                        </div>
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-16 text-xs text-slate-500">Market</div>
+                                            <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+                                                <div className="h-full w-[35%] bg-[#f4a623] rounded-full"></div>
+                                            </div>
+                                            <div className="w-8 text-xs text-slate-600 font-medium">35%</div>
                                         </div>
                                         <div className="flex items-center gap-3">
                                             <div className="w-16 text-xs text-slate-500">Asset</div>
@@ -197,20 +203,6 @@ export function BuyerMethods() {
                                                 <div className="h-full w-[15%] bg-emerald-500 rounded-full"></div>
                                             </div>
                                             <div className="w-8 text-xs text-slate-600 font-medium">15%</div>
-                                        </div>
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-16 text-xs text-slate-500">Market</div>
-                                            <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
-                                                <div className="h-full w-[25%] bg-[#f4a623] rounded-full"></div>
-                                            </div>
-                                            <div className="w-8 text-xs text-slate-600 font-medium">25%</div>
-                                        </div>
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-16 text-xs text-slate-500">EBITDA</div>
-                                            <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
-                                                <div className="h-full w-[20%] bg-slate-700 rounded-full"></div>
-                                            </div>
-                                            <div className="w-8 text-xs text-slate-600 font-medium">20%</div>
                                         </div>
                                     </div>
                                 </div>
