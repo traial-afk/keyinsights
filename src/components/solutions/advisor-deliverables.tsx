@@ -1,13 +1,12 @@
 "use client"
 
-import { TrendingUp, Building2, BarChart3, Clock, Check, Eye, FileText, FileSpreadsheet, Presentation, AlertTriangle, ArrowUpRight, ExternalLink, ChevronRight } from "lucide-react"
+import { TrendingUp, Building2, BarChart3, Check, Eye, FileText, FileSpreadsheet, Presentation, AlertTriangle, ArrowUpRight, ExternalLink, ChevronRight } from "lucide-react"
 
 export function AdvisorDeliverables() {
     const methods = [
-        { icon: TrendingUp, name: "Income Approach", detail: "DCF & Earnings Capitalization" },
-        { icon: Building2, name: "Asset-Based", detail: "Tangible & Intangible Assets" },
-        { icon: BarChart3, name: "Market Comparables", detail: "100K+ Transaction Database" },
-        { icon: Clock, name: "EBITDA Analysis", detail: "Weighted Historical Performance" },
+        { icon: TrendingUp, name: "Income Approach", weight: "50%", detail: "SDE/EBITDA Multiples + DCF" },
+        { icon: BarChart3, name: "Market Comparables", weight: "35%", detail: "100K+ Transaction Database" },
+        { icon: Building2, name: "Asset-Based", weight: "15%", detail: "Tangible & Intangible Assets" },
     ]
 
     const reports = [
@@ -94,7 +93,7 @@ export function AdvisorDeliverables() {
                             Our Methodology
                         </div>
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-                            4 Proven Methods.{" "}
+                            3 Proven Methods.{" "}
                             <span className="text-[#1e3a8a]">One Clear Answer.</span>
                         </h2>
                         <p className="text-slate-600 max-w-2xl mx-auto">
@@ -104,14 +103,17 @@ export function AdvisorDeliverables() {
 
                     {/* Methods Strip - Horizontal on desktop */}
                     <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {methods.map((method, index) => (
                                 <div key={index} className="text-center md:text-left">
                                     <div className="inline-flex items-center justify-center md:justify-start gap-3 mb-2">
                                         <div className="w-10 h-10 rounded-xl bg-[#1e3a8a]/10 flex items-center justify-center">
                                             <method.icon className="w-5 h-5 text-[#1e3a8a]" />
                                         </div>
-                                        <span className="font-bold text-slate-900">{method.name}</span>
+                                        <div className="flex items-center gap-2">
+                                            <span className="font-bold text-slate-900">{method.name}</span>
+                                            <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">{method.weight}</span>
+                                        </div>
                                     </div>
                                     <p className="text-sm text-slate-500 md:pl-[52px]">{method.detail}</p>
                                 </div>
