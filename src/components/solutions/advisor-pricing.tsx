@@ -14,7 +14,7 @@ export function AdvisorPricing() {
             "Red Flags Analysis"
         ],
         features: [
-            "4 Proven Valuation Methods",
+            "3 Proven Valuation Methods",
             "Market Comparables Benchmark",
             "24-Hour Delivery",
             "Consulation Call Included"
@@ -35,7 +35,7 @@ export function AdvisorPricing() {
             "Valuation Enhancement Report"
         ],
         features: [
-            "4 Proven Valuation Methods",
+            "3 Proven Valuation Methods",
             "Market Comparables Benchmark",
             "24-Hour Delivery",
             "Consulation Call Included"
