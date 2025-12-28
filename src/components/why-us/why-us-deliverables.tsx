@@ -24,7 +24,7 @@ const deliverables = [
         iconBg: "bg-red-100",
         title: "Red Flags Analysis",
         subtitle: "The Risks",
-        description: "Every weakness buyers will find—identified upfront so you're never caught off guard.",
+        description: "Every weakness buyers will find identified upfront so you're never caught off guard.",
         essential: true,
         exitReady: true,
     },
