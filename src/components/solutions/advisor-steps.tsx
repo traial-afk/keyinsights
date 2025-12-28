@@ -65,7 +65,7 @@ export function AdvisorSteps() {
             number: "02",
             icon: TrendingUp,
             title: "We Analyze Everything",
-            description: "Our team applies 4 proven valuation methods and runs a full analysis. You see a draft before your client does.",
+            description: "Our team applies 3 proven valuation methods and runs a full analysis. You see a draft before your client does.",
             expandable: false
         },
         {
