@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { TrendingUp, Building2, BarChart3, Calculator } from "lucide-react"
+import { TrendingUp, Building2, BarChart3 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
 const methodologies = [
@@ -9,29 +9,25 @@ const methodologies = [
         icon: TrendingUp,
         iconBg: "bg-blue-100",
         iconColor: "text-blue-600",
-        title: "DCF / Income Approach",
-        description: "Projects future cash flows and discounts them to present value. Captures the earning potential of your business.",
-    },
-    {
-        icon: Building2,
-        iconBg: "bg-emerald-100",
-        iconColor: "text-emerald-600",
-        title: "Asset-Based Valuation",
-        description: "Calculates the net value of tangible and intangible assets. Establishes a solid floor for your valuation.",
+        title: "Income Approach",
+        weight: "50%",
+        description: "Values your business based on normalized earnings (SDE/EBITDA) with industry multiples. Supported by DCF analysis where projections are available.",
     },
     {
         icon: BarChart3,
         iconBg: "bg-purple-100",
         iconColor: "text-purple-600",
         title: "Market Comparables",
-        description: "Benchmarks against real transaction data from similar businesses. Grounds your valuation in market reality.",
+        weight: "35%",
+        description: "Benchmarks against 100,000+ real transactions from similar businesses. Grounds your valuation in market reality.",
     },
     {
-        icon: Calculator,
-        iconBg: "bg-amber-100",
-        iconColor: "text-amber-600",
-        title: "Weighted EBITDA",
-        description: "Applies industry-standard multipliers to your earnings. The metric buyers and lenders understand best.",
+        icon: Building2,
+        iconBg: "bg-emerald-100",
+        iconColor: "text-emerald-600",
+        title: "Asset-Based Approach",
+        weight: "15%",
+        description: "Calculates the net value of tangible and intangible assets. Establishes a solid floor for your valuation.",
     },
 ]
 
@@ -73,7 +69,7 @@ export function WhyUsMethodologies() {
                         Our Methodology
                     </Badge>
                     <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] serif mb-4">
-                        Four Methods.{" "}
+                        Three Methods.{" "}
                         <span className="text-[#1e3a8a]">One Defensible Value.</span>
                     </h2>
                     <p className="text-slate-600 max-w-2xl mx-auto">
@@ -88,7 +84,7 @@ export function WhyUsMethodologies() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="grid md:grid-cols-2 gap-6"
+                    className="grid md:grid-cols-3 gap-6"
                 >
                     {methodologies.map((method, index) => (
                         <motion.div
@@ -97,15 +93,16 @@ export function WhyUsMethodologies() {
                             whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                             className="bg-slate-50 rounded-2xl p-6 md:p-8 border border-slate-200 hover:border-[#1e3a8a]/30 hover:shadow-lg transition-all duration-300"
                         >
-                            <div className="flex items-start gap-4">
+                            <div className="flex items-center justify-between mb-4">
                                 <div className={`w-12 h-12 rounded-xl ${method.iconBg} flex items-center justify-center flex-shrink-0`}>
                                     <method.icon className={`w-6 h-6 ${method.iconColor}`} />
                                 </div>
-                                <div>
-                                    <h3 className="font-bold text-lg text-slate-900 mb-2">{method.title}</h3>
-                                    <p className="text-slate-600 leading-relaxed">{method.description}</p>
-                                </div>
+                                <Badge variant="outline" className="text-slate-600 border-slate-300 font-semibold">
+                                    {method.weight}
+                                </Badge>
                             </div>
+                            <h3 className="font-bold text-lg text-slate-900 mb-2">{method.title}</h3>
+                            <p className="text-slate-600 leading-relaxed text-sm">{method.description}</p>
                         </motion.div>
                     ))}
                 </motion.div>
