@@ -45,7 +45,7 @@ export function WhyUsHero() {
                     className="text-slate-500 max-w-xl mx-auto leading-relaxed"
                 >
                     We combine technology-enabled efficiency with expert verification to deliver 
-                    professional valuations you can trust—without the wait or the premium price tag.
+                    professional valuations you can trust without the wait or the premium price tag.
                 </motion.p>
             </div>
         </section>
