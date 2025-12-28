@@ -5,12 +5,12 @@ import { MethodologyHero } from "@/components/methodology/methodology-hero"
 import { MethodologyOverview } from "@/components/methodology/methodology-overview"
 // Alternating Layout Options - swap these to test
 import { MethodologyDetailsA } from "@/components/methodology/methodology-details-a"
-// import { MethodologyDetailsB } from "@/components/methodology/methodology-details-b"
+import { MethodologyDetailsB } from "@/components/methodology/methodology-details-b"
 
 // Weighting Visualization Options - swap these to test
 import { MethodologyWeightingDonut } from "@/components/methodology/methodology-weighting-donut"
-// import { MethodologyWeightingBars } from "@/components/methodology/methodology-weighting-bars"
-// import { MethodologyWeightingFunnel } from "@/components/methodology/methodology-weighting-funnel"
+import { MethodologyWeightingBars } from "@/components/methodology/methodology-weighting-bars"
+import { MethodologyWeightingFunnel } from "@/components/methodology/methodology-weighting-funnel"
 
 import { MethodologyQuality } from "@/components/methodology/methodology-quality"
 import { MethodologyLimitations } from "@/components/methodology/methodology-limitations"
@@ -30,9 +30,12 @@ export default function MethodologyPage() {
             
             {/* Swap between MethodologyDetailsA and MethodologyDetailsB */}
             <MethodologyDetailsA />
+            <MethodologyDetailsB />
             
             {/* Swap between MethodologyWeightingDonut, MethodologyWeightingBars, MethodologyWeightingFunnel */}
             <MethodologyWeightingDonut />
+            <MethodologyWeightingBars />
+            <MethodologyWeightingFunnel />
             
             <MethodologyQuality />
             <MethodologyLimitations />
