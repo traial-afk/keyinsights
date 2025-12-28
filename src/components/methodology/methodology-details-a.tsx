@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
 import { TrendingUp, BarChart3, Calculator, Building2, ArrowUpRight, Database, Layers, Scale } from "lucide-react"
 
@@ -301,7 +302,7 @@ function BlocksIllustration() {
     )
 }
 
-const illustrations: Record<string, () => JSX.Element> = {
+const illustrations: Record<string, () => React.ReactNode> = {
     "cash-flow": CashFlowIllustration,
     "network": NetworkIllustration,
     "multiplier": MultiplierIllustration,
