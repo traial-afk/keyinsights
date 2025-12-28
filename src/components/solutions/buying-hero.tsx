@@ -88,7 +88,7 @@ export function BuyingHero() {
                             </div>
                             <div className="flex items-center gap-2 text-white font-medium">
                                 <CheckCircle2 className="h-5 w-5 text-[#f4a623]" />
-                                4-Method Analysis
+                                3-Method Analysis
                             </div>
                         </motion.div>
                     </div>
@@ -193,22 +193,27 @@ export function BuyingHero() {
                                             </div>
                                         </div>
 
+                                        {/* Updated to 3 Methods + Final Value */}
                                         <div className="grid grid-cols-2 gap-3">
                                             <div className="bg-slate-50 rounded-xl p-4 text-center hover:bg-blue-50 transition-colors">
-                                                <div className="text-[11px] text-slate-500 mb-1">DCF</div>
-                                                <div className="font-bold text-[#1e3a8a] text-lg">$2.3M</div>
+                                                <div className="text-[11px] text-slate-500 mb-1">Income</div>
+                                                <div className="font-bold text-[#1e3a8a] text-lg">$2.2M</div>
+                                                <div className="text-[10px] text-slate-400">50%</div>
                                             </div>
                                             <div className="bg-slate-50 rounded-xl p-4 text-center hover:bg-blue-50 transition-colors">
-                                                <div className="text-[11px] text-slate-500 mb-1">Income</div>
+                                                <div className="text-[11px] text-slate-500 mb-1">Market</div>
                                                 <div className="font-bold text-[#1e3a8a] text-lg">$2.1M</div>
+                                                <div className="text-[10px] text-slate-400">35%</div>
                                             </div>
                                             <div className="bg-slate-50 rounded-xl p-4 text-center hover:bg-blue-50 transition-colors">
                                                 <div className="text-[11px] text-slate-500 mb-1">Asset</div>
                                                 <div className="font-bold text-[#1e3a8a] text-lg">$1.8M</div>
+                                                <div className="text-[10px] text-slate-400">15%</div>
                                             </div>
-                                            <div className="bg-slate-50 rounded-xl p-4 text-center hover:bg-blue-50 transition-colors">
-                                                <div className="text-[11px] text-slate-500 mb-1">Weighted</div>
+                                            <div className="bg-blue-50 rounded-xl p-4 text-center border border-blue-100">
+                                                <div className="text-[11px] text-[#1e3a8a] font-semibold mb-1">Final Value</div>
                                                 <div className="font-bold text-[#1e3a8a] text-lg">$2.15M</div>
+                                                <div className="text-[10px] text-slate-400">Weighted</div>
                                             </div>
                                         </div>
 
@@ -234,7 +239,7 @@ export function BuyingHero() {
                     </div>
                 </div>
 
-                {/* Expandable Sample Reports Section */}
+                {/* Expandable Sample Reports Section - Added more top margin */}
                 <AnimatePresence>
                     {showSamples && (
                         <motion.div
@@ -242,7 +247,7 @@ export function BuyingHero() {
                             animate={{ opacity: 1, height: "auto", y: 0 }}
                             exit={{ opacity: 0, height: 0, y: 20 }}
                             transition={{ duration: 0.3 }}
-                            className="mt-16"
+                            className="mt-32 lg:mt-40 relative z-20"
                         >
                             <div className="relative mx-auto max-w-6xl rounded-2xl bg-white p-8 shadow-2xl border border-slate-200">
                                 <div className="flex items-center justify-between mb-8">
