@@ -251,7 +251,7 @@ function Step2Analysis() {
                             {i === 0 && <span className="text-[9px] font-bold text-[#0f172a] text-center leading-tight">DCF</span>}
                             {i === 1 && <span className="text-[9px] font-bold text-[#0f172a] text-center leading-tight">Asset</span>}
                             {i === 2 && <span className="text-[9px] font-bold text-[#0f172a] text-center leading-tight">Market</span>}
-                            {i === 3 && <span className="text-[9px] font-bold text-[#0f172a] text-center leading-tight">EBITDA</span>}
+                            {i === 3 && <span className="text-[9px] font-bold text-[#0f172a] text-center leading-tight">Income</span>}
                         </motion.div>
                     ))}
 
@@ -284,7 +284,7 @@ function Step2Analysis() {
                         Our certified analysts examine your financials using four proven valuation methods.
                     </p>
                     <ul className="space-y-3 inline-block text-left">
-                        {["DCF/Income approach", "Asset-based valuation", "Market comparables", "Weighted EBITDA"].map((item, i) => (
+                        {["DCF/Income approach", "Asset-based valuation", "Market comparables"].map((item, i) => (
                             <motion.li
                                 key={i}
                                 initial={{ opacity: 0, x: 20 }}
