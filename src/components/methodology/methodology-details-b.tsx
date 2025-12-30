@@ -72,14 +72,14 @@ function LineChartViz() {
     const years = ["Y1", "Y2", "Y3", "Y4", "Y5"]
     const values = [100, 115, 135, 158, 185]
     const maxValue = Math.max(...values)
-    
+
     return (
         <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 h-full">
             <div className="flex items-center justify-between mb-4">
                 <h4 className="font-semibold text-slate-700 text-sm">Projected Cash Flows</h4>
                 <span className="text-xs text-slate-400">5-Year Forecast</span>
             </div>
-            
+
             <div className="relative h-48">
                 {/* Grid lines */}
                 {[0, 25, 50, 75, 100].map((line) => (
@@ -89,7 +89,7 @@ function LineChartViz() {
                         style={{ bottom: `${line}%` }}
                     />
                 ))}
-                
+
                 {/* Line chart */}
                 <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
                     {/* Area fill */}
@@ -101,7 +101,7 @@ function LineChartViz() {
                         d={`M 0 ${192} ${values.map((v, i) => `L ${(i / (values.length - 1)) * 100}% ${192 - (v / maxValue) * 180}`).join(' ')} L 100% 192 Z`}
                         fill="url(#blueGradient)"
                     />
-                    
+
                     {/* Line */}
                     <motion.path
                         initial={{ pathLength: 0 }}
@@ -114,7 +114,7 @@ function LineChartViz() {
                         strokeWidth="3"
                         strokeLinecap="round"
                     />
-                    
+
                     <defs>
                         <linearGradient id="blueGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                             <stop offset="0%" stopColor="#3b82f6" />
@@ -122,7 +122,7 @@ function LineChartViz() {
                         </linearGradient>
                     </defs>
                 </svg>
-                
+
                 {/* Data points */}
                 {values.map((v, i) => (
                     <motion.div
@@ -139,14 +139,14 @@ function LineChartViz() {
                     />
                 ))}
             </div>
-            
+
             {/* X-axis labels */}
             <div className="flex justify-between mt-2 text-xs text-slate-400">
                 {years.map((year) => (
                     <span key={year}>{year}</span>
                 ))}
             </div>
-            
+
             {/* Legend */}
             <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -171,14 +171,14 @@ function ScatterChartViz() {
         { x: 75, y: 70, size: 10 },
         { x: 82, y: 85, size: 8 },
     ]
-    
+
     return (
         <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 h-full">
             <div className="flex items-center justify-between mb-4">
                 <h4 className="font-semibold text-slate-700 text-sm">Comparable Transactions</h4>
                 <span className="text-xs text-slate-400">Revenue vs. Sale Price</span>
             </div>
-            
+
             <div className="relative h-48 border-l-2 border-b-2 border-slate-200">
                 {/* Grid */}
                 {[25, 50, 75].map((line) => (
@@ -188,7 +188,7 @@ function ScatterChartViz() {
                         style={{ bottom: `${line}%` }}
                     />
                 ))}
-                
+
                 {/* Data points */}
                 {dataPoints.map((point, i) => (
                     <motion.div
@@ -207,7 +207,7 @@ function ScatterChartViz() {
                         }}
                     />
                 ))}
-                
+
                 {/* Your business indicator */}
                 <motion.div
                     initial={{ scale: 0 }}
@@ -223,7 +223,7 @@ function ScatterChartViz() {
                         transform: 'translate(-50%, 50%)',
                     }}
                 />
-                
+
                 {/* Trend line */}
                 <motion.div
                     initial={{ width: 0 }}
@@ -238,12 +238,12 @@ function ScatterChartViz() {
                     }}
                 />
             </div>
-            
+
             {/* Axis labels */}
             <div className="flex justify-between mt-2">
                 <span className="text-xs text-slate-400">Revenue →</span>
             </div>
-            
+
             {/* Legend */}
             <div className="mt-4 pt-4 border-t border-slate-100 flex items-center gap-4">
                 <div className="flex items-center gap-2">
@@ -269,14 +269,14 @@ function BarChartViz() {
         { name: "Distribution", multiple: 3.5, highlight: false },
     ]
     const maxMultiple = Math.max(...industries.map(i => i.multiple))
-    
+
     return (
         <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 h-full">
             <div className="flex items-center justify-between mb-4">
                 <h4 className="font-semibold text-slate-700 text-sm">Industry EBITDA Multiples</h4>
                 <span className="text-xs text-slate-400">2024 Median</span>
             </div>
-            
+
             <div className="space-y-3">
                 {industries.map((industry, i) => (
                     <div key={industry.name} className="flex items-center gap-3">
@@ -304,7 +304,7 @@ function BarChartViz() {
                     </div>
                 ))}
             </div>
-            
+
             {/* Your business callout */}
             <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -333,14 +333,14 @@ function StackedChartViz() {
         { name: "Goodwill", value: 400, color: "bg-slate-200" },
     ]
     const total = assets.reduce((sum, a) => sum + a.value, 0)
-    
+
     return (
         <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 h-full">
             <div className="flex items-center justify-between mb-4">
                 <h4 className="font-semibold text-slate-700 text-sm">Asset Composition</h4>
                 <span className="text-xs text-slate-400">by Category</span>
             </div>
-            
+
             {/* Stacked horizontal bar */}
             <div className="h-12 rounded-lg overflow-hidden flex mb-4">
                 {assets.map((asset, i) => (
@@ -355,7 +355,7 @@ function StackedChartViz() {
                     />
                 ))}
             </div>
-            
+
             {/* Legend */}
             <div className="grid grid-cols-2 gap-2">
                 {assets.map((asset, i) => (
@@ -373,7 +373,7 @@ function StackedChartViz() {
                     </motion.div>
                 ))}
             </div>
-            
+
             {/* Total */}
             <motion.div
                 initial={{ opacity: 0 }}
@@ -400,7 +400,6 @@ const colorClasses: Record<string, { bg: string; text: string; border: string; l
     blue: { bg: "bg-blue-500", text: "text-blue-600", border: "border-blue-200", light: "bg-blue-50" },
     slate: { bg: "bg-slate-500", text: "text-slate-600", border: "border-slate-200", light: "bg-slate-50" },
     amber: { bg: "bg-amber-500", text: "text-amber-600", border: "border-amber-200", light: "bg-amber-50" },
-    slate: { bg: "bg-slate-500", text: "text-slate-600", border: "border-slate-200", light: "bg-slate-50" },
 }
 
 export function MethodologyDetailsB() {
@@ -411,7 +410,7 @@ export function MethodologyDetailsB() {
                     const isEven = index % 2 === 0
                     const colors = colorClasses[method.color]
                     const ChartComponent = chartComponents[method.chartType]
-                    
+
                     return (
                         <motion.div
                             key={method.id}
@@ -425,7 +424,7 @@ export function MethodologyDetailsB() {
                             <div className="w-full lg:w-1/2">
                                 <ChartComponent />
                             </div>
-                            
+
                             {/* Content Side */}
                             <div className="w-full lg:w-1/2 space-y-6">
                                 {/* Header */}
@@ -437,7 +436,7 @@ export function MethodologyDetailsB() {
                                         {method.weight} Weight
                                     </div>
                                 </div>
-                                
+
                                 {/* Title & Tagline */}
                                 <div>
                                     <h3 className="text-2xl md:text-3xl font-bold text-slate-900 font-['Playfair_Display'] serif mb-2">
@@ -447,12 +446,12 @@ export function MethodologyDetailsB() {
                                         {method.tagline}
                                     </p>
                                 </div>
-                                
+
                                 {/* Description */}
                                 <p className="text-slate-600 leading-relaxed">
                                     {method.description}
                                 </p>
-                                
+
                                 {/* Details */}
                                 <div className={`${colors.light} rounded-xl p-5 space-y-3`}>
                                     {method.details.map((detail) => (
