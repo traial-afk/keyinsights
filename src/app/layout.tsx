@@ -23,13 +23,13 @@ export const metadata: Metadata = {
     description: "Professional business valuation in 24 hours for $399-$549. Data-driven financial analysis for buyers, sellers, and advisors.",
     siteName: "KeyInsightsAI",
     images: [
-    {
-      url: "/logo.png",
-      width: 1200,
-      height: 630,
-      alt: "KeyInsightsAI - Business Valuation in 24 Hours",
-    }
-  ],
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "KeyInsightsAI - Business Valuation in 24 Hours",
+      }
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -59,15 +59,15 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
-          enableSystem
+          enableSystem={false}
           disableTransitionOnChange
         >
           {children}
           <Toaster />
           <CookieConsent />
         </ThemeProvider>
-        
-           
+
+
         {/* Google tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-RSSZ6B5GWX"
@@ -81,7 +81,7 @@ export default function RootLayout({
             gtag('config', 'G-RSSZ6B5GWX');
           `}
         </Script>
-        
+
         {/* Microsoft Clarity */}
         <Script id="microsoft-clarity" strategy="afterInteractive">
           {`

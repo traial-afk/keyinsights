@@ -11,7 +11,7 @@ export function BuyingHero() {
     const [showSamples, setShowSamples] = useState(false)
 
     return (
-        <section className="relative overflow-hidden bg-[#1e3a8a] pt-32 pb-20 lg:pt-48 lg:pb-32">
+        <section className="relative overflow-hidden bg-[#1e3a8a] pt-32 pb-48 lg:pt-48 lg:pb-64">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10 pointer-events-none">
                 <svg className="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">

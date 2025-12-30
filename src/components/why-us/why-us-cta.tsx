@@ -7,9 +7,9 @@ import Link from "next/link"
 
 export function WhyUsCTA() {
     const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com"
-    
+
     return (
-        <section className="py-20 md:py-28 bg-gradient-to-b from-white via-slate-50 to-slate-100">
+        <section className="py-20 md:py-28 bg-slate-50">
             <div className="container mx-auto px-4 max-w-4xl">
 
                 {/* Main Headline */}
@@ -94,8 +94,8 @@ export function WhyUsCTA() {
                         </Button>
                     </Link>
                     <a href={calendlyUrl} target="_blank" rel="noopener noreferrer">
-                        <Button 
-                            variant="outline" 
+                        <Button
+                            variant="outline"
                             className="border-[#1e3a8a] text-[#1e3a8a] hover:bg-[#1e3a8a] hover:text-white font-semibold h-14 px-8 text-lg rounded-full transition-all group"
                         >
                             <Calendar className="mr-2 w-5 h-5" />

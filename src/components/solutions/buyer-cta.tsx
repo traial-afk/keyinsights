@@ -5,7 +5,7 @@ import { Clock, FileCheck, MessageSquare, ArrowRight } from "lucide-react"
 
 export function BuyerCTA() {
     return (
-        <section className="py-20 md:py-28 bg-gradient-to-b from-white via-slate-50 to-slate-100">
+        <section className="py-20 md:py-28 bg-slate-50">
             <div className="container mx-auto px-4 max-w-4xl">
 
                 {/* Main Headline */}

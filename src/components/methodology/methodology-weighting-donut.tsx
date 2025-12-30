@@ -1,31 +1,38 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { TrendingUp, BarChart3, Calculator, Building2 } from "lucide-react"
+import { TrendingUp, BarChart3, Building2, Link2 } from "lucide-react"
 
+// Brand colors: Income=#1e3a8a (dark blue), Market=#f4a623 (amber), Asset=#3b82f6 (light blue)
 const weightings = [
-    { name: "Income Approach", weight: 40, color: "#3b82f6", icon: TrendingUp },
-    { name: "Market Comparables", weight: 25, color: "#8b5cf6", icon: BarChart3 },
-    { name: "Weighted EBITDA", weight: 20, color: "#f59e0b", icon: Calculator },
-    { name: "Asset-Based", weight: 15, color: "#10b981", icon: Building2 },
+    { name: "Income Approach", weight: 50, color: "#1e3a8a", icon: TrendingUp },
+    { name: "Market Comparables", weight: 35, color: "#f4a623", icon: BarChart3 },
+    { name: "Asset-Based", weight: 15, color: "#3b82f6", icon: Building2 },
 ]
 
 export function MethodologyWeightingDonut() {
     // Calculate stroke dash values for each segment
-    const circumference = 2 * Math.PI * 80 // radius = 80
-    let cumulativeOffset = 0
-    
-    const segments = weightings.map((method) => {
+    const radius = 80
+    const circumference = 2 * Math.PI * radius
+
+    // Build segments with correct positioning
+    // strokeDashoffset: positive value rotates counter-clockwise (moves start point backward)
+    // We start at 12 o'clock position (after -90 degree rotation)
+    const segments = []
+    let startAngle = 0
+
+    for (const method of weightings) {
         const dashLength = (method.weight / 100) * circumference
-        const offset = cumulativeOffset
-        cumulativeOffset += dashLength
-        return {
+        // strokeDashoffset moves the pattern start, so we use negative of startAngle position
+        const dashOffset = -startAngle
+        segments.push({
             ...method,
             dashLength,
-            dashOffset: circumference - offset,
-        }
-    })
-    
+            dashOffset,
+        })
+        startAngle += dashLength
+    }
+
     return (
         <section className="py-24 bg-white">
             <div className="container mx-auto px-4 max-w-5xl">
@@ -41,7 +48,7 @@ export function MethodologyWeightingDonut() {
                     </h2>
                     <p className="text-slate-600 max-w-2xl mx-auto">
                         Each methodology contributes to the final valuation based on its relevance to your specific business.
-                        The weighted average produces a defensible range—not a single, arbitrary number.
+                        The weighted average produces a defensible range, not a single, arbitrary number.
                     </p>
                 </motion.div>
 
@@ -54,7 +61,15 @@ export function MethodologyWeightingDonut() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="relative"
                     >
-                        <svg width="280" height="280" viewBox="0 0 200 200">
+                        <motion.svg
+                            width="280"
+                            height="280"
+                            viewBox="0 0 200 200"
+                            initial={{ opacity: 0, rotate: -180 }}
+                            whileInView={{ opacity: 1, rotate: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1, ease: "easeOut" }}
+                        >
                             {/* Background circle */}
                             <circle
                                 cx="100"
@@ -64,10 +79,10 @@ export function MethodologyWeightingDonut() {
                                 stroke="#f1f5f9"
                                 strokeWidth="24"
                             />
-                            
+
                             {/* Segments */}
-                            {segments.map((segment, index) => (
-                                <motion.circle
+                            {segments.map((segment) => (
+                                <circle
                                     key={segment.name}
                                     cx="100"
                                     cy="100"
@@ -79,14 +94,10 @@ export function MethodologyWeightingDonut() {
                                     strokeDasharray={`${segment.dashLength} ${circumference}`}
                                     strokeDashoffset={segment.dashOffset}
                                     transform="rotate(-90 100 100)"
-                                    initial={{ strokeDasharray: `0 ${circumference}` }}
-                                    whileInView={{ strokeDasharray: `${segment.dashLength} ${circumference}` }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 1, delay: 0.3 + index * 0.15 }}
                                 />
                             ))}
-                        </svg>
-                        
+                        </motion.svg>
+
                         {/* Center text */}
                         <div className="absolute inset-0 flex flex-col items-center justify-center">
                             <motion.span
@@ -142,6 +153,51 @@ export function MethodologyWeightingDonut() {
                     </div>
                 </div>
 
+                {/* Weighted Valuation Range Card */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                    className="mt-16 flex flex-col items-center"
+                >
+                    {/* Link icon */}
+                    <div className="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mb-4">
+                        <Link2 className="w-8 h-8 text-slate-400" />
+                    </div>
+
+                    {/* Arrow */}
+                    <div className="text-[#1e3a8a] mb-4">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M12 5v14M5 12l7 7 7-7" />
+                        </svg>
+                    </div>
+
+                    {/* Valuation Range Card */}
+                    <div className="bg-[#1e3a8a] rounded-2xl px-12 py-10 text-center max-w-lg">
+                        <p className="text-blue-200 text-sm font-medium mb-2">Weighted Valuation Range</p>
+                        <p className="text-white text-4xl md:text-5xl font-bold mb-3">
+                            $1.8M - $2.4M
+                        </p>
+                        <p className="text-blue-200 text-sm mb-6">
+                            Defensible. Data-driven. Ready for negotiation.
+                        </p>
+
+                        {/* Weight pills */}
+                        <div className="flex flex-wrap justify-center gap-2">
+                            <span className="px-3 py-1.5 bg-white/10 rounded-full text-white text-sm font-medium">
+                                Income 50%
+                            </span>
+                            <span className="px-3 py-1.5 bg-white/10 rounded-full text-white text-sm font-medium">
+                                Comps 35%
+                            </span>
+                            <span className="px-3 py-1.5 bg-white/10 rounded-full text-white text-sm font-medium">
+                                Assets 15%
+                            </span>
+                        </div>
+                    </div>
+                </motion.div>
+
                 {/* Note */}
                 <motion.p
                     initial={{ opacity: 0 }}
@@ -150,7 +206,7 @@ export function MethodologyWeightingDonut() {
                     transition={{ duration: 0.5, delay: 1 }}
                     className="text-center text-slate-500 text-sm mt-10 max-w-xl mx-auto"
                 >
-                    <span className="font-semibold text-slate-700">Note:</span> Weights may be adjusted based on your business type. 
+                    <span className="font-semibold text-slate-700">Note:</span> Weights may be adjusted based on your business type.
                     Asset-heavy businesses may weight the Asset-Based approach higher, while SaaS companies may emphasize the Income Approach.
                 </motion.p>
             </div>

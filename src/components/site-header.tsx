@@ -45,7 +45,7 @@ export function SiteHeader() {
     }
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 border-b bg-white/80 backdrop-blur-md border-slate-200 dark:bg-slate-950/80 dark:border-slate-800">
+        <header className="fixed top-0 left-0 right-0 z-50 border-b bg-white/80 backdrop-blur-md border-slate-200 dark:bg-slate-950/80 dark:border-slate-800" suppressHydrationWarning>
             {/* Top Bar - optional if we want it super separated, but for now putting inside nav structure */}
             <div className="container flex items-center justify-between h-16 px-4 mx-auto">
                 <Link href="/" className="flex items-center gap-2 text-3xl text-[#1e3a8a] dark:text-white">

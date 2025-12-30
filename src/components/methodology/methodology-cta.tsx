@@ -10,9 +10,9 @@ import { ContactUsDialog } from "@/components/shared/contact-us-dialog"
 export function MethodologyCTA() {
     const [showSample, setShowSample] = useState(false)
     const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com"
-    
+
     return (
-        <section className="py-20 md:py-28 bg-gradient-to-b from-slate-50 via-white to-slate-100">
+        <section className="py-20 md:py-28 bg-slate-50">
             <div className="container mx-auto px-4 max-w-4xl">
                 {/* Main content */}
                 <motion.div
@@ -79,7 +79,7 @@ export function MethodologyCTA() {
                                         <X className="h-5 w-5" />
                                     </Button>
                                 </div>
-                                
+
                                 {/* PDF Preview */}
                                 <div className="h-[500px] bg-slate-100">
                                     <iframe
@@ -88,12 +88,12 @@ export function MethodologyCTA() {
                                         title="Sample Business Valuation Report"
                                     />
                                 </div>
-                                
+
                                 {/* Actions */}
                                 <div className="p-4 bg-white border-t border-slate-100 flex flex-col sm:flex-row gap-3">
-                                    <a 
-                                        href="/samples/business-valuation-report.pdf" 
-                                        target="_blank" 
+                                    <a
+                                        href="/samples/business-valuation-report.pdf"
+                                        target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex-1"
                                     >
@@ -148,8 +148,8 @@ export function MethodologyCTA() {
                                 </Button>
                             </Link>
                             <a href={calendlyUrl} target="_blank" rel="noopener noreferrer">
-                                <Button 
-                                    variant="outline" 
+                                <Button
+                                    variant="outline"
                                     className="border-[#1e3a8a] text-[#1e3a8a] hover:bg-[#1e3a8a] hover:text-white font-semibold h-14 px-8 text-lg rounded-full transition-all"
                                 >
                                     <Calendar className="mr-2 w-5 h-5" />
@@ -173,8 +173,8 @@ export function MethodologyCTA() {
                         <span className="text-sm">Need white-label valuations for your clients?</span>
                     </div>
                     <ContactUsDialog
-                        triggerText="Contact Us About White-Label"
-                        triggerClassName="border-slate-300 text-slate-600 hover:bg-slate-100 hover:text-slate-900 text-sm"
+                        triggerText="Contact Us"
+                        triggerClassName="border-slate-300 text-white hover:bg-slate-100 hover:text-slate-900 text-sm"
                     />
                 </motion.div>
 

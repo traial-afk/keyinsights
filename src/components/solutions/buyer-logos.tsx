@@ -61,7 +61,7 @@ export function BuyerLogos() {
                                         logo.icon && (
                                             <div className="flex items-center gap-3">
                                                 <logo.icon className={`w-auto ${LOGO_HEIGHT_CLASS} text-slate-700`} strokeWidth={1.5} />
-                                                <span className="text-xl font-bold text-slate-700 font-['Norwester'] tracking-wide">
+                                                <span className="text-xl font-bold text-slate-700 tracking-wide">
                                                     {logo.name}
                                                 </span>
                                             </div>

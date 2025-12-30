@@ -64,7 +64,7 @@ export function BlogListing({ posts }: BlogListingProps) {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight font-['Norwester']"
+                        className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight"
                     >
                         Must Reads
                     </motion.h1>

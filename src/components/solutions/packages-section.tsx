@@ -30,7 +30,7 @@ export function PackagesSection() {
     ];
 
     return (
-        <section id="pricing" className="py-20 md:py-32 bg-gradient-to-b from-slate-900 via-slate-900 to-[#1e3a8a] text-white relative overflow-hidden">
+        <section id="pricing" className="py-20 md:py-32 bg-slate-900 text-white relative overflow-hidden">
             {/* Subtle grid pattern */}
             <div
                 className="absolute inset-0 opacity-[0.03]"
@@ -58,7 +58,7 @@ export function PackagesSection() {
                     <div className="bg-white text-slate-900 rounded-3xl overflow-hidden shadow-2xl">
                         <div className="grid lg:grid-cols-5 gap-0">
                             {/* Price Column */}
-                            <div className="lg:col-span-2 bg-gradient-to-br from-[#1e3a8a] to-blue-900 p-10 lg:p-12 text-white flex flex-col justify-center relative overflow-hidden">
+                            <div className="lg:col-span-2 bg-[#1e3a8a] p-10 lg:p-12 text-white flex flex-col justify-center relative overflow-hidden">
                                 {/* Subtle accent */}
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl -mr-16 -mt-16"></div>
 

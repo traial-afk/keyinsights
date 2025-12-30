@@ -32,7 +32,7 @@ const methodologies = [
             { label: "Matching criteria", value: "Industry, size, geography, timing" },
             { label: "Adjustments", value: "Normalized for business-specific factors" },
         ],
-        color: "purple",
+        color: "slate",
         chartType: "scatter",
     },
     {
@@ -62,7 +62,7 @@ const methodologies = [
             { label: "Intangible assets", value: "Customer lists, IP, brand value" },
             { label: "Goodwill", value: "Calculated as excess over book value" },
         ],
-        color: "emerald",
+        color: "slate",
         chartType: "stacked",
     },
 ]
@@ -197,7 +197,7 @@ function ScatterChartViz() {
                         whileInView={{ scale: 1, opacity: 0.7 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: 0.1 * i }}
-                        className="absolute bg-purple-500 rounded-full"
+                        className="absolute bg-slate-500 rounded-full"
                         style={{
                             left: `${point.x}%`,
                             bottom: `${point.y}%`,
@@ -214,7 +214,7 @@ function ScatterChartViz() {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.8, type: "spring" }}
-                    className="absolute bg-purple-600 rounded-full border-4 border-white shadow-lg"
+                    className="absolute bg-slate-600 rounded-full border-4 border-white shadow-lg"
                     style={{
                         left: '50%',
                         bottom: '60%',
@@ -230,7 +230,7 @@ function ScatterChartViz() {
                     whileInView={{ width: "85%" }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, delay: 0.5 }}
-                    className="absolute h-0.5 bg-purple-300 origin-left"
+                    className="absolute h-0.5 bg-slate-300 origin-left"
                     style={{
                         left: '10%',
                         bottom: '35%',
@@ -247,11 +247,11 @@ function ScatterChartViz() {
             {/* Legend */}
             <div className="mt-4 pt-4 border-t border-slate-100 flex items-center gap-4">
                 <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-purple-500/50 rounded-full" />
+                    <div className="w-3 h-3 bg-slate-500/50 rounded-full" />
                     <span className="text-xs text-slate-600">Comparables (47)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-purple-600 rounded-full border-2 border-white shadow" />
+                    <div className="w-3 h-3 bg-slate-600 rounded-full border-2 border-white shadow" />
                     <span className="text-xs text-slate-600 font-semibold">Your Business</span>
                 </div>
             </div>
@@ -326,11 +326,11 @@ function BarChartViz() {
 // Stacked bar - Asset breakdown
 function StackedChartViz() {
     const assets = [
-        { name: "Real Estate", value: 450, color: "bg-emerald-600" },
-        { name: "Equipment", value: 320, color: "bg-emerald-500" },
-        { name: "Inventory", value: 180, color: "bg-emerald-400" },
-        { name: "Intangibles", value: 250, color: "bg-emerald-300" },
-        { name: "Goodwill", value: 400, color: "bg-emerald-200" },
+        { name: "Real Estate", value: 450, color: "bg-slate-600" },
+        { name: "Equipment", value: 320, color: "bg-slate-500" },
+        { name: "Inventory", value: 180, color: "bg-slate-400" },
+        { name: "Intangibles", value: 250, color: "bg-slate-300" },
+        { name: "Goodwill", value: 400, color: "bg-slate-200" },
     ]
     const total = assets.reduce((sum, a) => sum + a.value, 0)
     
@@ -383,7 +383,7 @@ function StackedChartViz() {
                 className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between"
             >
                 <span className="text-sm font-semibold text-slate-700">Total Asset Value</span>
-                <span className="text-xl font-bold text-emerald-600">${(total / 1000).toFixed(1)}M</span>
+                <span className="text-xl font-bold text-slate-600">${(total / 1000).toFixed(1)}M</span>
             </motion.div>
         </div>
     )
@@ -398,9 +398,9 @@ const chartComponents: Record<string, () => React.ReactNode> = {
 
 const colorClasses: Record<string, { bg: string; text: string; border: string; light: string }> = {
     blue: { bg: "bg-blue-500", text: "text-blue-600", border: "border-blue-200", light: "bg-blue-50" },
-    purple: { bg: "bg-purple-500", text: "text-purple-600", border: "border-purple-200", light: "bg-purple-50" },
+    slate: { bg: "bg-slate-500", text: "text-slate-600", border: "border-slate-200", light: "bg-slate-50" },
     amber: { bg: "bg-amber-500", text: "text-amber-600", border: "border-amber-200", light: "bg-amber-50" },
-    emerald: { bg: "bg-emerald-500", text: "text-emerald-600", border: "border-emerald-200", light: "bg-emerald-50" },
+    slate: { bg: "bg-slate-500", text: "text-slate-600", border: "border-slate-200", light: "bg-slate-50" },
 }
 
 export function MethodologyDetailsB() {

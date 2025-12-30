@@ -46,7 +46,7 @@ export default function LoginPage() {
             </div>
             <div className="w-full max-w-md flex flex-col gap-12">
                 <div className="flex justify-center">
-                    <span className="font-['Norwester'] tracking-wide text-3xl text-[#1e3a8a] dark:text-blue-400">KeyInsights AI</span>
+                    <span className="font-bold tracking-wide text-3xl text-[#1e3a8a] dark:text-blue-400">KeyInsights AI</span>
                 </div>
                 <div className="w-full p-8 space-y-6 bg-white rounded-lg shadow-lg dark:bg-slate-900">
                     <div className="text-center">

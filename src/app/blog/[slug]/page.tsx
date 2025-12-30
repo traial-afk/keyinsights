@@ -102,7 +102,7 @@ export default async function BlogPostPage({ params }: Props) {
                             </span>
                         </div>
 
-                        <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-8 font-['Norwester'] tracking-wide">
+                        <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-8 tracking-wide">
                             {post.title}
                         </h1>
 
