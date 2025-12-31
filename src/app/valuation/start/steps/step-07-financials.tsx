@@ -72,12 +72,13 @@ export function Step7Financials({ form, control }: StepProps) {
                             />
                         )}
                     />
+                    <p className="text-xs text-muted-foreground">Enter negative (e.g., -50000) if the business operated at a loss.</p>
                     {errors.annualProfit && <p className="text-sm text-red-500">{errors.annualProfit.message}</p>}
                 </div>
             </div>
 
             <div className="space-y-2">
-                <Label>Last Year EBITDA <span className="text-red-500">*</span></Label>
+                <Label>EBITDA (Most Recent Year) <span className="text-red-500">*</span></Label>
                 <Controller
                     control={control}
                     name="lastYearEBITDA"
@@ -89,11 +90,12 @@ export function Step7Financials({ form, control }: StepProps) {
                         />
                     )}
                 />
+                <p className="text-xs text-muted-foreground">Enter negative if EBITDA was negative.</p>
                 {errors.lastYearEBITDA && <p className="text-sm text-red-500">{errors.lastYearEBITDA.message}</p>}
             </div>
             <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                    <Label>EBITDA (Year -1)</Label>
+                    <Label>EBITDA (Previous Year)</Label>
                     <Controller
                         control={control}
                         name="previousYear1EBITDA"
@@ -105,9 +107,10 @@ export function Step7Financials({ form, control }: StepProps) {
                             />
                         )}
                     />
+                    <p className="text-xs text-muted-foreground">Enter negative if applicable.</p>
                 </div>
                 <div className="space-y-2">
-                    <Label>EBITDA (Year -2)</Label>
+                    <Label>EBITDA (2 Years Prior)</Label>
                     <Controller
                         control={control}
                         name="previousYear2EBITDA"
@@ -119,6 +122,7 @@ export function Step7Financials({ form, control }: StepProps) {
                             />
                         )}
                     />
+                    <p className="text-xs text-muted-foreground">Enter negative if applicable.</p>
                 </div>
             </div>
 

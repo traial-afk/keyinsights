@@ -44,11 +44,9 @@ export async function saveValuationDraft(formData: any, filePaths: string[], dra
     const { data, error } = result
 
     if (error) {
-        console.error("Error saving draft:", error)
         return { success: false, error: error.message }
     }
 
-    console.log("Draft saved successfully:", data.id)
     return { success: true, data }
 }
 
@@ -65,7 +63,6 @@ export async function deleteValuationDraft(draftId: string) {
         .eq('user_id', user.id)
 
     if (error) {
-        console.error("Error deleting draft:", error)
         throw new Error(error.message)
     }
 
@@ -88,9 +85,7 @@ export async function getValuationDraft() {
         .limit(1)
         .single()
 
-    if (error && error.code !== 'PGRST116') { // PGRST116 is "Row not found"
-        console.error("Error fetching draft:", error)
-    }
+    // PGRST116 is "Row not found" - not an error
 
     return data
 }
@@ -133,7 +128,19 @@ export async function getUserCredits() {
     }
 }
 
-export async function submitValuation(planType: 'essential' | 'exitready', draftId: string) {
+// Type for file data passed from client
+export interface FileData {
+    name: string
+    type: string
+    size: number
+    base64: string  // Base64 encoded file content
+}
+
+export async function submitValuation(
+    planType: 'essential' | 'exitready',
+    draftId: string,
+    files: FileData[] = []
+) {
     const supabase = await createClient()
     const { data: { user } } = await supabase.auth.getUser()
 
@@ -211,25 +218,123 @@ export async function submitValuation(planType: 'essential' | 'exitready', draft
         throw new Error("Failed to update valuation status")
     }
 
-    // 4. Trigger Webhook
-    try {
-        const webhookUrl = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL
-        if (webhookUrl) {
-            console.log("Triggering webhook:", webhookUrl)
-            fetch(webhookUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    user_id: user.id,
-                    valuation_id: draft.id,
-                    plan_type: planType,
-                    form_data: draft.form_data,
-                    file_paths: draft.file_paths
+    // 4. Create Session_Collections entry to track this submission
+    const sessionPackageType = planType === 'essential' ? 'essential' : 'exitready'
+    const { error: sessionError } = await supabase
+        .from('Session_Collections')
+        .insert({
+            userId: user.id,
+            package_type: sessionPackageType,
+            reportsCreated: 1
+        })
+
+    if (sessionError) {
+        // Log but don't fail - this is for analytics, not critical
+    }
+
+    // 4. Send to Valuation Redirect Server
+    const apiUrl = process.env.VALUATION_API_URL
+    if (apiUrl) {
+        try {
+            // Get Supabase session token for authentication
+            const { data: { session } } = await supabase.auth.getSession()
+            const jwt = session?.access_token
+
+            if (!jwt) {
+                throw new Error("No session token available")
+            }
+
+            // Build FormData - append fields directly (not as JSON)
+            const formData = new FormData()
+
+            // Add user authentication data
+            formData.append('userId', user.id)
+            formData.append('email', user.email)
+
+            // Add submission metadata
+            formData.append('valuation_id', draft.id)
+            formData.append('plan_type', planType)
+            formData.append('package_type', packageType)
+
+            // Add form fields from draft
+            if (draft.form_data && typeof draft.form_data === 'object') {
+                Object.entries(draft.form_data).forEach(([key, value]) => {
+                    if (value !== null && value !== '' && value !== undefined) {
+                        formData.append(key, String(value))
+                    }
                 })
-            }).catch(e => console.error("Webhook background trigger failed", e))
+            }
+
+            // Add file_paths as JSON if present
+            if (draft.file_paths && Array.isArray(draft.file_paths)) {
+                formData.append('file_paths', JSON.stringify(draft.file_paths))
+            }
+
+            // Download and add existing files from Supabase storage (for resumed drafts)
+            if (draft.file_paths && Array.isArray(draft.file_paths) && draft.file_paths.length > 0) {
+                for (const filePath of draft.file_paths) {
+                    try {
+                        const { data: fileData, error: downloadError } = await supabase
+                            .storage
+                            .from('valuation-files')
+                            .download(filePath)
+
+                        if (fileData && !downloadError) {
+                            // Extract filename from path (e.g., "userId/timestamp_filename.pdf" -> "filename.pdf")
+                            const fileName = filePath.split('/').pop()?.replace(/^\d+_/, '') || 'file'
+                            formData.append('files', fileData, fileName)
+                        }
+                    } catch {
+                        // Skip files that fail to download
+                    }
+                }
+            }
+
+            // Add fresh uploads from current session (files passed as base64)
+            for (const file of files) {
+                // Convert base64 to Blob
+                const byteCharacters = atob(file.base64)
+                const byteNumbers = new Array(byteCharacters.length)
+                for (let j = 0; j < byteCharacters.length; j++) {
+                    byteNumbers[j] = byteCharacters.charCodeAt(j)
+                }
+                const byteArray = new Uint8Array(byteNumbers)
+                const blob = new Blob([byteArray], { type: file.type || 'application/octet-stream' })
+
+                formData.append('files', blob, file.name)
+            }
+
+            // Send to redirect server with timeout
+            const controller = new AbortController()
+            const timeoutId = setTimeout(() => controller.abort(), 180000) // 3 minutes timeout
+
+            const response = await fetch(`${apiUrl}/request`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${jwt}`
+                },
+                body: formData,
+                signal: controller.signal
+            })
+
+            clearTimeout(timeoutId)
+
+            // Even if server response isn't perfect, data is saved in Supabase
+            // and will be processed
+            if (!response.ok) {
+                const errorText = await response.text()
+                throw new Error(`Server error: ${response.status} - ${errorText}`)
+            }
+        } catch (error) {
+            if (error instanceof Error && error.name === 'AbortError') {
+                // Timeout - but data may still be processing
+                // Don't throw, let it succeed since data is in Supabase
+            } else {
+                throw new Error(`Failed to send to processing server: ${error instanceof Error ? error.message : 'Unknown error'}`)
+            }
         }
-    } catch (e) {
-        console.error("Webhook setup failed", e)
+    } else {
+        throw new Error("VALUATION_API_URL is not configured")
     }
 
     revalidatePath('/dashboard')
@@ -250,7 +355,6 @@ export async function getProjectById(projectId: string) {
         .single()
 
     if (error) {
-        console.error("Error fetching project:", error)
         return null
     }
 
@@ -272,7 +376,6 @@ export async function getProjectReports(projectId: string) {
         .single()
 
     if (!project) {
-        console.error("Unauthorized access to project reports")
         return []
     }
 
@@ -287,7 +390,6 @@ export async function getProjectReports(projectId: string) {
         })
 
     if (error) {
-        console.error("Error fetching reports:", error)
         return []
     }
 
@@ -328,7 +430,6 @@ export async function getUserInvoices() {
         })
 
     if (error) {
-        console.error("Error fetching invoices:", error)
         return []
     }
 

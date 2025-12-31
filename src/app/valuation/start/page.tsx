@@ -22,7 +22,7 @@ import {
 import { createClient } from "@/lib/supabase/client"
 import { useRouter, useSearchParams } from "next/navigation"
 import { toast } from "sonner"
-import { saveValuationDraft, getValuationDraft, getUserCredits, submitValuation } from "../actions"
+import { saveValuationDraft, getValuationDraft, getUserCredits, submitValuation, type FileData } from "../actions"
 import Link from "next/link"
 import { Step1Persona } from "./steps/step-01-persona"
 import { Step2Contact } from "./steps/step-02-contact"
@@ -129,18 +129,13 @@ function WizardPageContent() {
     // Load Draft on Mount or URL Change
     useEffect(() => {
         const loadDraft = async () => {
-            console.log("Loading draft... START", { draftId, searchParams: searchParams.toString(), windowLoc: typeof window !== 'undefined' ? window.location.href : 'N/A' })
             try {
-                // 1. If draftId is present in URL, fetch specific draft from server (Resume Flow)
                 if (draftId) {
-                    console.log("Draft ID found in URL, fetching from server...")
                     const { data: draft, error } = await supabase
                         .from('valuation_inputs')
                         .select('*')
                         .eq('id', draftId)
                         .single()
-
-                    console.log("Draft fetch result:", { draft, error })
 
                     if (draft && !error) {
                         // Sync to local storage
@@ -158,13 +153,10 @@ function WizardPageContent() {
 
                         // Resume Logic: PRIORITIZE SAVED STEP
                         if (typeof draft.form_data?.currentStep === 'number') {
-                            console.log(`Resuming draft at saved step: ${draft.form_data.currentStep}`)
                             setCurrentStep(draft.form_data.currentStep)
                             toast.success(`Resumed at Step ${draft.form_data.currentStep + 1}`)
                         }
-                        // Fallback: If draft is active but no step saved, jump to end (legacy behavior)
                         else if (draft.status === 'draft' && currentStep === 0) {
-                            console.log("Resuming draft, jumping to last step (legacy)")
                             setCurrentStep(9)
                             toast.success("Resumed draft from server")
                         }
@@ -174,15 +166,12 @@ function WizardPageContent() {
                         setCredits(userCredits)
                         return // Stop here, don't load local
                     }
-                } else {
-                    console.log("No draft ID found in URL.")
                 }
 
                 // 2. Fallback: Load from Local Storage (Guest or New)
                 // Only load local storage if we are NOT on a specific draft ID URL
                 if (!draftId) {
                     const savedData = localStorage.getItem(STORAGE_KEY)
-                    console.log("Local Storage Data:", savedData ? "Found" : "Empty")
 
                     if (savedData) {
                         const parsed = JSON.parse(savedData)
@@ -190,19 +179,14 @@ function WizardPageContent() {
 
                         // Resume Step from Local Storage
                         if (typeof parsed.currentStep === 'number') {
-                            console.log(`Resuming local at step: ${parsed.currentStep}`)
                             setCurrentStep(parsed.currentStep)
                             toast.info(`Resumed at Step ${parsed.currentStep + 1}`)
                         } else if (Object.keys(parsed).length > 0) {
-                            // Legacy persistence
-                            console.log("Resuming from local storage (legacy)")
                             toast.info("Resumed from local backup")
                         }
                     } else {
-                        // If no local data and no draftId, ensure we start at step 0
-                        console.log("Starting fresh: Step 0")
                         setCurrentStep(0)
-                        reset({}) // Clear form
+                        reset({})
                     }
                 }
 
@@ -212,8 +196,8 @@ function WizardPageContent() {
                     const userCredits = await getUserCredits()
                     setCredits(userCredits)
                 }
-            } catch (error) {
-                console.error("Failed to load draft", error)
+            } catch {
+                // Silent fail on load error
             }
         }
         loadDraft()
@@ -252,7 +236,6 @@ function WizardPageContent() {
                         .upload(`${user.id}/${fileName}`, file)
 
                     if (data) filePaths.push(data.path)
-                    if (error) console.error("File upload error:", error)
                 }
 
                 const result = await saveValuationDraft(dataToSave, filePaths, draftId || undefined)
@@ -265,14 +248,12 @@ function WizardPageContent() {
                         router.replace(`?${params.toString()}`, { scroll: false })
                     }
                 } else {
-                    console.error("Server save failed:", result.error)
                     toast.error(`Failed to save: ${result.error}`)
                 }
             } else {
                 toast.success("Progress saved locally")
             }
         } catch (error: any) {
-            console.error("Save draft error:", error)
             toast.error(error.message || "Failed to save draft")
         } finally {
             setIsSaving(false)
@@ -317,11 +298,30 @@ function WizardPageContent() {
             // 1. Save final state first
             await handleSaveDraft()
 
-            // 2. Submit
-            if (!draftId) throw new Error("No draft ID found")
-            await submitValuation(planType, draftId)
+            // 2. Convert files to base64 for server action
+            const fileDataPromises = files.map(async (file): Promise<FileData> => {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader()
+                    reader.onload = () => {
+                        const base64 = (reader.result as string).split(',')[1] // Remove data:mime;base64, prefix
+                        resolve({
+                            name: file.name,
+                            type: file.type,
+                            size: file.size,
+                            base64
+                        })
+                    }
+                    reader.onerror = reject
+                    reader.readAsDataURL(file)
+                })
+            })
+            const fileData = await Promise.all(fileDataPromises)
 
-            // 3. Clear local storage on success
+            // 3. Submit with files
+            if (!draftId) throw new Error("No draft ID found")
+            await submitValuation(planType, draftId, fileData)
+
+            // 4. Clear local storage on success
             localStorage.removeItem(STORAGE_KEY)
 
             toast.success("Valuation submitted successfully!")

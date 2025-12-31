@@ -78,13 +78,43 @@ export function Step10Documents({ files, serverFiles, onFileChange, onRemoveFile
                 </div>
             )}
 
-            <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg text-sm text-blue-800 dark:text-blue-200">
-                <p className="font-semibold mb-2">Essential Documents:</p>
-                <ul className="list-disc list-inside space-y-1">
-                    <li>3 years of financial statements (P&L, Balance Sheet)</li>
-                    <li>Current year financials</li>
-                    <li>Executive summary (optional)</li>
-                </ul>
+            {/* Document Guidance */}
+            <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg text-sm text-blue-800 dark:text-blue-200 space-y-4">
+                <div>
+                    <p className="font-semibold mb-2">Essential Documents for Accurate Valuation:</p>
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>3 years of financial statements (P&L, Balance Sheet)</li>
+                        <li>Current year financials (if available)</li>
+                        <li>Executive summary/business overview</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p className="font-semibold mb-2">Recommended for Better Valuation:</p>
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>Customer concentration analysis</li>
+                        <li>Employee organizational chart</li>
+                        <li>Equipment/asset lists</li>
+                        <li>Tax documents (Form 1120S for depreciation)</li>
+                        <li>Lease agreements</li>
+                        <li>Key contracts</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p className="font-semibold mb-2">For CIM (Confidential Information Memorandum) Creation:</p>
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>High-quality business photos if possible</li>
+                        <li>Marketing materials</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p className="font-semibold mb-2">Additional Documents (if applicable):</p>
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>Any other relevant business documents</li>
+                    </ul>
+                </div>
             </div>
         </div>
     )
