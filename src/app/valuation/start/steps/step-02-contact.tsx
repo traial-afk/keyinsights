@@ -33,7 +33,7 @@ export function Step2Contact({ form }: StepProps) {
                             <Input {...register("clientBusinessName")} placeholder="ABC Company Inc." />
                         </div>
                         <div className="space-y-2">
-                            <Label>I am helping my client</Label>
+                            <Label>I am representing my client</Label>
                             <Select onValueChange={(val) => setValue("advisorServiceType", val as any)} value={formData.advisorServiceType}>
                                 <SelectTrigger>
                                     <SelectValue placeholder="Select service type" />
