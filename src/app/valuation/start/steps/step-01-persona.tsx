@@ -47,7 +47,7 @@ export function Step1Persona({ form, credits }: StepProps) {
                     <SelectContent>
                         <SelectItem value="buyer">Buyer (conducting due diligence)</SelectItem>
                         <SelectItem value="seller">Seller (preparing to sell)</SelectItem>
-                        <SelectItem value="advisor">Advisor (helping a client)</SelectItem>
+                        <SelectItem value="advisor">Advisor (representing a client)</SelectItem>
                     </SelectContent>
                 </Select>
                 {errors.userType && <p className="text-sm text-red-500">{errors.userType.message}</p>}
