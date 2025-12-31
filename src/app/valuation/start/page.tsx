@@ -446,21 +446,21 @@ function WizardPageContent() {
                                     </div>
 
                                     {/* Exit Ready Plan */}
-                                    <div className={`border-2 rounded-xl p-6 space-y-4 transition-all ${credits?.exitReady && credits.exitReady > 0 ? 'border-purple-500 bg-purple-50/50 dark:bg-purple-900/10' : 'border-slate-200'}`}>
+                                    <div className={`border-2 rounded-xl p-6 space-y-4 transition-all ${credits?.exitReady && credits.exitReady > 0 ? 'border-[#1e3a8a] bg-blue-80/80 dark:bg-blue-900/10' : 'border-slate-200'}`}>
                                         <div className="flex justify-between items-start">
                                             <h3 className="text-xl font-bold text-slate-900 dark:text-white">Exit-Ready Package</h3>
                                             {credits?.exitReady && credits.exitReady > 0 ? (
-                                                <span className="bg-purple-100 text-purple-700 text-xs font-bold px-2 py-1 rounded-full">1 Package Available</span>
+                                                <span className="bg-blue-200 text-blue-900 text-xs font-bold px-2 py-1 rounded-full">1 Package Available</span>
                                             ) : null}
                                         </div>
                                         <p className="text-sm text-muted-foreground">Comprehensive suite of reports for selling your business.</p>
                                         <ul className="space-y-3 text-sm">
                                             <li className="flex items-start gap-2">
-                                                <CheckCircle className="w-4 h-4 text-purple-500 mt-0.5 shrink-0" />
+                                                <CheckCircle className="w-4 h-4 text-blue-700 mt-0.5 shrink-0" />
                                                 <span>Includes Essential Package Reports</span>
                                             </li>
                                             <li className="flex items-start gap-2">
-                                                <CheckCircle className="w-4 h-4 text-purple-500 mt-0.5 shrink-0" />
+                                                <CheckCircle className="w-4 h-4 text-blue-700 mt-0.5 shrink-0" />
                                                 <ReportInfo
                                                     title="Professional Business Teaser"
                                                     description="A concise one-page overview designed to attract qualified buyers without revealing sensitive information. Perfect for initial buyer outreach and generating interest."
@@ -468,7 +468,7 @@ function WizardPageContent() {
                                                 />
                                             </li>
                                             <li className="flex items-start gap-2">
-                                                <CheckCircle className="w-4 h-4 text-purple-500 mt-0.5 shrink-0" />
+                                                <CheckCircle className="w-4 h-4 text-blue-700 mt-0.5 shrink-0" />
                                                 <ReportInfo
                                                     title="Confidential Information Memorandum (CIM)"
                                                     description="A comprehensive document that provides detailed information about your business including financials, operations, market position, and growth opportunities. Essential for serious buyers conducting due diligence."
@@ -476,7 +476,7 @@ function WizardPageContent() {
                                                 />
                                             </li>
                                             <li className="flex items-start gap-2">
-                                                <CheckCircle className="w-4 h-4 text-purple-500 mt-0.5 shrink-0" />
+                                                <CheckCircle className="w-4 h-4 text-blue-700 mt-0.5 shrink-0" />
                                                 <ReportInfo
                                                     title="Valuation Enhancement Report"
                                                     description="Strategic recommendations to increase your business value before sale. Includes actionable insights on financial improvements, operational efficiencies, and market positioning."
@@ -485,7 +485,7 @@ function WizardPageContent() {
                                         </ul>
                                         <div className="pt-4">
                                             {credits?.exitReady && credits.exitReady > 0 ? (
-                                                <Button className="w-full bg-purple-600 hover:bg-purple-700" onClick={() => onFinalSubmit('exitready')} disabled={isSubmitting}>
+                                                <Button className="w-full bg-[#1e3a8a] hover:bg-blue-700" onClick={() => onFinalSubmit('exitready')} disabled={isSubmitting}>
                                                     {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : "Submit with Exit-Ready Package"}
                                                 </Button>
                                             ) : (
