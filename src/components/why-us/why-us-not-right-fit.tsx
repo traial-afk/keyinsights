@@ -13,10 +13,6 @@ const notRightFitItems = [
         text: "Complex multi-entity corporate structures",
     },
     {
-        icon: Landmark,
-        text: "Transactions over $10M+ requiring Big 4 sign-off",
-    },
-    {
         icon: FileWarning,
         text: "Regulatory compliance valuations (SBA 7(a), ESOP, etc.)",
     },
