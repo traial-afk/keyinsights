@@ -34,8 +34,7 @@ export function MethodologyHero() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="text-slate-600 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed mb-4"
                 >
-                    Four proven approaches. One defensible number.{" "}
-                    <span className="font-semibold text-slate-900">Built for SMB transactions up to $10M.</span>
+                    Three proven approaches. One defensible number.{" "}
                 </motion.p>
 
                 <motion.p
