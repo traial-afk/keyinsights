@@ -354,7 +354,7 @@ After seeing hundreds of transactions, clear patterns emerge. Avoid these mistak
 
 **Unrealistic Price Expectations**
 
-The number one deal killer. Sellers often anchor on what they need for retirement, what a competitor sold for, or what they believe the business should be worth—rather than what the market will actually pay. A [professional business valuation](/services/valuation-reports) from an independent third party provides objective reality and helps manage expectations early.
+The number one deal killer. Sellers often anchor on what they need for retirement, what a competitor sold for, or what they believe the business should be worth—rather than what the market will actually pay. A [professional business valuation](/selling) from an independent third party provides objective reality and helps manage expectations early.
 
 **Insufficient Preparation**
 
