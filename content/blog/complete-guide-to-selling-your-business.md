@@ -4,7 +4,7 @@ excerpt: "Master the complete business sale process from preparation to closing.
 date: "2026-01-01"
 readTime: "10 min read"
 category: "Selling Guides"
-image: "/images/blog/complete-guide-to-selling-your-business.png"
+image: "/images/blog/complete-guide-to-selling-your-business.jpg"
 featured: true
 author_name: "Elie Brock"
 author_role: "Business Acquisition Specialist"
