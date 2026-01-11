@@ -1,7 +1,7 @@
 ---
 title: "Understanding Business Valuations: Complete Guide to Methods, Add-Backs & Buyer Perspectives"
 excerpt: "Master business valuation methods from SDE to EBITDA multiples. Learn how to recast financials, calculate add-backs, and understand what different buyer types value."
-date: "2024-12-19"
+date: "2026-01-11"
 readTime: "12 min read"
 category: "Valuation"
 image: "/images/blog/understanding-business-valuations-guide.png"
