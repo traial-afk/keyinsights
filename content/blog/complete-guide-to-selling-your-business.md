@@ -1,7 +1,7 @@
 ---
 title: "Complete Guide to Selling Your Business in 2026: Step-by-Step Process & Timeline"
 excerpt: "Master the complete business sale process from preparation to closing. Learn proven strategies, avoid costly mistakes, and maximize your business value with our comprehensive guide."
-date: "2026-01-11"
+date: "2026-01-10"
 readTime: "10 min read"
 category: "Selling Guides"
 image: "/images/blog/complete-guide-to-selling-your-business.png"
@@ -494,7 +494,7 @@ The typical business sale takes 6-12 months from listing to closing. However, st
 
 **What is my business actually worth?**
 
-Business value depends on multiple factors including profitability, growth trajectory, industry multiples, asset base, customer concentration, and owner dependency. Small businesses typically sell for 2-4x seller's discretionary earnings, while larger businesses with professional management may achieve 4-6x EBITDA. A [professional valuation](/services/valuation-reports) provides the most accurate assessment.
+Business value depends on multiple factors including profitability, growth trajectory, industry multiples, asset base, customer concentration, and owner dependency. Small businesses typically sell for 2-4x seller's discretionary earnings, while larger businesses with professional management may achieve 4-6x EBITDA. A [professional valuation](/selling) provides the most accurate assessment.
 
 **Should I use a business broker or sell myself?**
 
