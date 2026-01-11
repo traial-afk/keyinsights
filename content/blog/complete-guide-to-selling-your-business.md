@@ -1,10 +1,10 @@
 ---
 title: "Complete Guide to Selling Your Business in 2026: Step-by-Step Process & Timeline"
 excerpt: "Master the complete business sale process from preparation to closing. Learn proven strategies, avoid costly mistakes, and maximize your business value with our comprehensive guide."
-date: "2026-01-01"
+date: "2026-01-11"
 readTime: "10 min read"
 category: "Selling Guides"
-image: "/images/blog/complete-guide-to-selling-your-business.jpg"
+image: "/images/blog/complete-guide-to-selling-your-business.png"
 featured: true
 author_name: "Elie Brock"
 author_role: "Business Acquisition Specialist"
