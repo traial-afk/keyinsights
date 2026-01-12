@@ -1,7 +1,7 @@
 ---
 title: "How Long Does a Business Valuation Take? Complete Timeline & Process Guide"
 excerpt: "Business valuations typically take 3-6 weeks from start to finish. Discover the complete timeline, what affects speed, and how to get faster results for your valuation needs."
-date: "2024-12-20"
+date: "2026-01-12"
 readTime: "7 min read"
 category: "Valuation"
 image: "/images/blog/how-long-does-business-valuation-take.png"
