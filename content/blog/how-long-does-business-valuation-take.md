@@ -46,7 +46,7 @@ Here's how long business valuations take by complexity:
 
 The 3-6 week timeline includes everything from your initial call to receiving the final report. But there's a catch—this assumes you're immediately responsive to information requests and have your documents organized upfront.
 
-If you're planning to sell your business, understanding valuation methods helps you prepare better. Our [understanding business valuations guide](/blog/understanding-business-valuations-guide) explains SDE, EBITDA, and other key concepts that affect both valuation time and accuracy.
+If you're planning to sell your business, understanding valuation methods helps you prepare better. Our [understanding business valuations guide](/blog/understanding-business-valuations) explains SDE, EBITDA, and other key concepts that affect both valuation time and accuracy.
 
 **Expedited Options**
 
@@ -148,7 +148,7 @@ Prepare organizational charts, key employee summaries, and customer concentratio
 
 **Document Add-Backs and Adjustments**
 
-If you run personal expenses through the business or have unusual items affecting profitability, document these with supporting proof. Our [understanding business valuations guide](/blog/understanding-business-valuations-guide) explains which adjustments are typically accepted and how to support them properly.
+If you run personal expenses through the business or have unusual items affecting profitability, document these with supporting proof. Our [understanding business valuations guide](/blog/understanding-business-valuations) explains which adjustments are typically accepted and how to support them properly.
 
 **Be Immediately Responsive**
 
