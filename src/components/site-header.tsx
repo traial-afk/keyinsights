@@ -156,7 +156,7 @@ export function SiteHeader() {
                         <Button variant="ghost">Log in</Button>
                     </Link>
 
-                    <Link href="/valuation/start" className="hidden sm:flex">
+                    <Link href="/estimate" className="hidden sm:flex">
                         <Button variant="outline">Free Estimate</Button>
                     </Link>
 
@@ -242,7 +242,7 @@ export function SiteHeader() {
                                         <Link href="/auth/login" className="block w-full">
                                             <Button variant="ghost" className="w-full justify-start">Log in</Button>
                                         </Link>
-                                        <Link href="/valuation/start" className="block w-full">
+                                        <Link href="/estimate" className="block w-full">
                                             <Button variant="outline" className="w-full">Free Estimate</Button>
                                         </Link>
                                         <Link href="/auth/signup" className="block w-full">
