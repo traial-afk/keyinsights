@@ -1,7 +1,7 @@
 ---
 title: "Can I Do My Own Business Valuation? DIY vs Professional: Full Guide 2024"
 excerpt: "Learn when DIY business valuations work versus when you need professional help. Get step-by-step methods, avoid costly mistakes, and make the right choice for your situation."
-date: "2024-12-19"
+date: "2026-01-14"
 readTime: "7 min read"
 category: "Valuation"
 image: "/images/blog/diy-business-valuation-guide.png"
