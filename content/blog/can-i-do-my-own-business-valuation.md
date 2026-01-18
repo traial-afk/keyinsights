@@ -98,7 +98,7 @@ Real example: A $1.5 million revenue service business with $275,000 SDE. At 3.2x
 
 Create a simple report explaining your methodology, data sources, and assumptions. Future you (or professional valuators) will need this documentation. Include sensitivity analysis—what happens if multiples are 20% higher or lower?
 
-To better understand the specific methods mentioned here, our [business valuations guide](/blog/understanding-business-valuations-guide) provides detailed coverage of SDE, EBITDA, and other professional approaches.
+To better understand the specific methods mentioned here, our [business valuations guide](/blog/understanding-business-valuations) provides detailed coverage of SDE, EBITDA, and other professional approaches.
 
 ---
 
