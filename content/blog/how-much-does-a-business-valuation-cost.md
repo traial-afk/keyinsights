@@ -52,7 +52,7 @@ Large businesses with multiple subsidiaries, international operations, or comple
 **Broker Opinion of Value: Free to $1,500**
 When you're working with a business broker to sell your company, they typically provide a market-based opinion of value at no additional cost. Standalone broker opinions usually cost $500-$1,500 and focus purely on what similar businesses have sold for recently.
 
-The key insight? Most business owners who are simply preparing to sell their business don't need the premium-priced certified valuations. Understanding [business valuation methods](/blog/understanding-business-valuations-guide) helps you choose the right approach for your specific needs.
+The key insight? Most business owners who are simply preparing to sell their business don't need the premium-priced certified valuations. Understanding [business valuation methods](/blog/understanding-business-valuations) helps you choose the right approach for your specific needs.
 
 ---
 
