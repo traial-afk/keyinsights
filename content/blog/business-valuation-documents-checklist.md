@@ -51,7 +51,7 @@ Appraisers look for consistent accounting methods across all periods. If you cha
 **Management Reports and Internal Metrics**
 Beyond formal financial statements, provide any monthly or quarterly management reports you use to run the business. These often contain more detailed breakdowns of revenue streams, customer metrics, or operational data that aren't visible in standard financial statements.
 
-Understanding how these financial documents translate into actual business value is critical—our comprehensive [guide to business valuations](/blog/understanding-business-valuations-guide) explains the specific methods appraisers use to convert this financial data into value estimates.
+Understanding how these financial documents translate into actual business value is critical—our comprehensive [guide to business valuations](/blog/understanding-business-valuation) explains the specific methods appraisers use to convert this financial data into value estimates.
 
 ---
 
