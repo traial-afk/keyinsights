@@ -101,7 +101,7 @@ export function BlogListing({ posts }: BlogListingProps) {
             </section>
 
             {/* Newsletter Section */}
-            <section className="bg-slate-50 py-20 border-t border-slate-200">
+            {/* <section className="bg-slate-50 py-20 border-t border-slate-200">
                 <div className="container mx-auto px-4 text-center max-w-2xl">
                     <h2 className="text-3xl font-bold text-[#1e3a8a] mb-4">Stay Ahead of the Curve</h2>
                     <p className="text-slate-600 mb-8">Get the latest valuation insights and market trends delivered straight to your inbox.</p>
@@ -116,7 +116,7 @@ export function BlogListing({ posts }: BlogListingProps) {
                         </button>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </div>
     )
 }
