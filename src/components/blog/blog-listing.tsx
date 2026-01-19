@@ -76,7 +76,7 @@ export function BlogListing({ posts }: BlogListingProps) {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="flex flex-wrap justify-center gap-3 sm:gap-6 md:gap-12 mt-8 text-sm md:text-base font-semibold tracking-wider text-slate-400 uppercase"
                     >
-                        {["Valuation 101", "Selling Guides", "Market Trends", "Case Studies", "Resources"].map((cat, i) => (
+                        {{/*["Valuation 101", "Selling Guides", "Market Trends", "Case Studies", "Resources"]*/}.map((cat, i) => (
                             <button
                                 key={i}
                                 className="hover:text-[#f4a623] transition-colors duration-300 relative group"
