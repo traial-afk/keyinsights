@@ -60,7 +60,7 @@ export function Step2Contact({ form }: StepProps) {
 
                 {(formData.userType === 'seller' || (formData.userType === 'advisor' && formData.advisorServiceType === 'selling')) && (
                     <div className="space-y-2">
-                        <Label>What makes this business valuable?</Label>
+                        <Label>What makes this business valuable and Owner Involvement Level ?</Label>
                         <Textarea
                             {...register("sellerValue")}
                             placeholder="Competitive advantages, unique assets..."
