@@ -66,7 +66,7 @@ export function Step2Contact({ form }: StepProps) {
                             placeholder="Competitive advantages, unique assets..."
                             rows={4}
                         />
-                        <p className="text-xs text-muted-foreground">Highlight what makes this business stand out to potential buyers</p>
+                        <p className="text-xs text-muted-foreground">Highlight what makes this business stand out to potential buyers and owner involvement level</p>
                     </div>
                 )}
             </div>
